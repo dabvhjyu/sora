@@ -1,0 +1,628 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* SOLO ARREGLAR Z-INDEX DEL HEADER Y FOOTER - SIN SOBRESCRIBIR OTROS ESTILOS */
+.nk-header-main {
+  z-index: 9999 !important;
+}
+
+.nk-footer-main {
+  z-index: 9999 !important;
+}
+
+/* Carrusel de fondo completo */
+.carousel-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* lo manda detrás de todo el contenido */
+}
+
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide:nth-child(1) {
+  background-image: url("#{resource['images/01.png']}");
+}
+
+.carousel-slide:nth-child(2) {
+  background-image: url("#{resource['images/02.png']}");
+}
+
+.carousel-slide:nth-child(3) {
+  background-image: url("#{resource['images/03.png']}");
+}
+
+.carousel-slide:nth-child(4) {
+  background-image: url("#{resource['images/04.png']}");
+}
+.carousel-slide:nth-child(5) {
+  background-image: url("#{resource['images/05.png']}");
+}
+.carousel-slide:nth-child(6) {
+  background-image: url("#{resource['images/06.png']}");
+}
+
+/* Overlay oscuro sobre las imágenes */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(21, 11, 22, 0.8);
+  z-index: 2; /* Above carousel */
+}
+
+/* Container principal */
+.main-container {
+  position: relative;
+  z-index: 3; /* Above overlay */
+  min-height: calc(100vh - 140px); /* Account for header and footer height */
+  display: flex;
+  align-items: center;
+  padding: 70px 0; /* Add padding for header/footer */
+  width: 100%;
+  margin-top: 70px; /* Space for fixed header */
+}
+
+/* Login box section takes exactly 50% width and centers content */
+.login-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+/* Logo section takes exactly 50% width and centers content */
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+/* Updated logo class to permanent-logo with larger dimensions (500px x 800px) */
+.permanent-logo {
+  max-width: 500px;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(87, 35, 100, 0.3);
+  filter: drop-shadow(0 4px 8px rgba(87, 35, 100, 0.4));
+}
+
+/* Removed margin-left and fixed width for clean 50/50 layout */
+.login-box {
+  background: rgba(59, 27, 67, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 25px 50px rgba(87, 35, 100, 0.4), 0 15px 35px rgba(73, 31, 83, 0.3), 0 5px 15px rgba(59, 27, 67, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(87, 35, 100, 0.3);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f0e6f7;
+  font-size: 2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(87, 35, 100, 0.5);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  text-align: left; 
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #e6d7f0;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #491f53;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(46, 23, 51, 0.9);
+  color: #f0e6f7;
+}
+
+.form-input::placeholder {
+  color: #b8a9c9;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #572364;
+  box-shadow: 0 0 0 3px rgba(87, 35, 100, 0.3);
+  background: rgba(33, 18, 36, 0.95);
+}
+
+/* Enhanced error input styling when validation fails */
+.form-input.error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+  background: rgba(46, 23, 51, 0.95);
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #572364, #3b1b43);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(87, 35, 100, 0.4);
+  margin-bottom: 1rem;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(87, 35, 100, 0.6);
+  background: linear-gradient(135deg, #491f53, #6b2c7a);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+/* Enhanced error messages with animations and better styling */
+/* Completely redesigned error messages with elegant styling */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.05));
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-left: 4px solid #e74c3c;
+  color: #ff9999;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
+  animation: slideInError 0.3s ease-out;
+}
+
+.error-message::before {
+  content: "⚠";
+  font-size: 1rem;
+  color: #e74c3c;
+  flex-shrink: 0;
+}
+
+/* Enhanced global error message styling for login failures */
+.global-error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(192, 57, 43, 0.08));
+  border: 1px solid rgba(231, 76, 60, 0.4);
+  border-radius: 12px;
+  color: #ffb3b3;
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+  animation: slideInError 0.4s ease-out, errorPulse 2s ease-in-out infinite;
+}
+
+.global-error-message::before {
+  content: "🔒";
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Added smooth animations for error messages */
+/* Added smooth animation for error messages */
+@keyframes slideInError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Added pulse animation for critical errors */
+@keyframes errorPulse {
+  0%,
+  100% {
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(231, 76, 60, 0.3);
+  }
+}
+
+/* Added styles for form options and links */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-input {
+  width: auto !important;
+  margin: 0;
+  accent-color: #572364;
+}
+
+.checkbox-label {
+  color: #e6d7f0 !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 0;
+}
+
+.forgot-password {
+  margin-left: auto;
+}
+
+.forgot-link {
+  color: #b19cd9 !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: #d4c5e8 !important;
+  text-decoration: underline;
+}
+
+/* Added styles for register link container */
+.register-link-container {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(87, 35, 100, 0.3);
+}
+
+.register-text {
+  color: #e6d7f0 !important;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.register-link {
+  color: #b19cd9 !important;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.register-link:hover {
+  color: #d4c5e8 !important;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 90px 1rem 90px 1rem; /* Increased padding for mobile header/footer */
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 180px); /* Account for mobile header/footer */
+  }
+
+  .login-section,
+  .logo-section {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
+  .permanent-logo {
+    max-width: 180px;
+    max-height: 180px;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+
+  .error-message,
+  .global-error-message {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  /* Added mobile styles for form options */
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .forgot-password {
+    margin-left: 0;
+    align-self: flex-end;
+  }
+
+  .register-link-container {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .register-text,
+  .register-link {
+    font-size: 0.85rem;
+  }
+  /* Estilos para los mensajes de PrimeFaces */
+    .login-messages {
+        margin-bottom: 20px;
+    }
+    
+    .ui-messages {
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0 !important;
+        background: transparent !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .ui-messages-error {
+        background: linear-gradient(135deg, #ff6b6b, #ee5a52) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: white !important;
+        padding: 12px 16px !important;
+        margin: 0 0 15px 0 !important;
+        font-size: 14px !important;
+        animation: slideDown 0.3s ease-out;
+        box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3) !important;
+    }
+    
+    .ui-messages-info {
+        background: linear-gradient(135deg, #51cf66, #40c057) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: white !important;
+        padding: 12px 16px !important;
+        margin: 0 0 15px 0 !important;
+        font-size: 14px !important;
+        animation: slideDown 0.3s ease-out;
+        box-shadow: 0 2px 8px rgba(81, 207, 102, 0.3) !important;
+    }
+    
+    .ui-messages-warn {
+        background: linear-gradient(135deg, #ffd43b, #fab005) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: white !important;
+        padding: 12px 16px !important;
+        margin: 0 0 15px 0 !important;
+        font-size: 14px !important;
+        animation: slideDown 0.3s ease-out;
+        box-shadow: 0 2px 8px rgba(255, 212, 59, 0.3) !important;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Eliminación completa y agresiva del espacio fantasma en mensajes de PrimeFaces */
+    .ui-messages-error-icon,
+    .ui-messages-info-icon,
+    .ui-messages-warn-icon {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    
+    .ui-messages ul {
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+        text-indent: 0 !important;
+    }
+    
+    .ui-messages li {
+        margin: 0 !important;
+        padding: 0 !important;
+        text-indent: 0 !important;
+        list-style: none !important;
+    }
+    
+    .ui-messages-error-detail,
+    .ui-messages-info-detail,
+    .ui-messages-warn-detail {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-weight: 500 !important;
+        display: block !important;
+        line-height: 1.4 !important;
+        text-indent: 0 !important;
+        text-align: left !important;
+    }
+    
+    /* Eliminación total del espacio inicial y mejora de coherencia visual */
+    .ui-messages .ui-messages-icon {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        visibility: hidden !important;
+    }
+
+    .ui-messages .ui-messages-summary {
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+        text-indent: 0 !important;
+        text-align: left !important;
+        white-space: normal !important;
+    }
+
+    /* Asegurar que no hay espacios adicionales en el contenedor */
+    .ui-messages-error .ui-messages-summary,
+    .ui-messages-info .ui-messages-summary,
+    .ui-messages-warn .ui-messages-summary {
+        margin: 0 !important;
+        padding: 0 !important;
+        text-indent: 0 !important;
+        white-space: normal !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    /* Eliminar cualquier pseudo-elemento que pueda crear espacio */
+    .ui-messages-error::before,
+    .ui-messages-info::before,
+    .ui-messages-warn::before,
+    .ui-messages-error-detail::before,
+    .ui-messages-info-detail::before,
+    .ui-messages-warn-detail::before {
+        display: none !important;
+        content: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    /* Solución definitiva: resetear completamente el contenido de los mensajes */
+    .ui-messages-error,
+    .ui-messages-info,
+    .ui-messages-warn {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        text-align: left !important;
+    }
+
+    /* Iconos personalizados con posicionamiento absoluto para evitar espacios */
+    .ui-messages-error::after {
+        content: "⚠" !important;
+        position: absolute !important;
+        left: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        font-size: 16px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: bold !important;
+        z-index: 2 !important;
+    }
+
+    .ui-messages-info::after {
+        content: "ℹ" !important;
+        position: absolute !important;
+        left: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        font-size: 16px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: bold !important;
+        z-index: 2 !important;
+    }
+
+    .ui-messages-warn::after {
+        content: "⚡" !important;
+        position: absolute !important;
+        left: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        font-size: 16px !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: bold !important;
+        z-index: 2 !important;
+    }
+
+    /* Ajustar padding para hacer espacio al icono personalizado */
+    .ui-messages-error,
+    .ui-messages-info,
+    .ui-messages-warn {
+        padding-left: 40px !important;
+    }
+
+    /* Forzar que el texto comience exactamente después del icono */
+    .ui-messages-error .ui-messages-summary,
+    .ui-messages-info .ui-messages-summary,
+    .ui-messages-warn .ui-messages-summary {
+        position: relative !important;
+        left: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        text-indent: 0 !important;
+    }
+}

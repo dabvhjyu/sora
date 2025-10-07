@@ -1,0 +1,549 @@
+/* CSS completamente aislado para #nk-main-content */
+#nk-main-content {
+    background: linear-gradient(135deg, #000000, #150b16) !important;
+    min-height: 100vh !important;
+    padding: 2rem !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    color: #ffffff !important;
+}
+
+#nk-main-content .main-container {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    background: linear-gradient(145deg, #211224, #2e1733) !important;
+    border-radius: 25px !important;
+    padding: 3rem !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(87, 35, 100, 0.4) !important;
+}
+
+#nk-main-content .main-title {
+    text-align: center !important;
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 3rem !important;
+    background: linear-gradient(135deg, #572364, #491f53) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 4px 8px rgba(87, 35, 100, 0.4) !important;
+    position: relative !important;
+}
+
+#nk-main-content .main-title::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100px !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, #572364, #491f53) !important;
+    border-radius: 2px !important;
+}
+
+#nk-main-content .serie-info {
+    background: linear-gradient(135deg, #3b1b43, #491f53) !important;
+    padding: 2rem !important;
+    border-radius: 20px !important;
+    margin-bottom: 3rem !important;
+    border: 1px solid rgba(87, 35, 100, 0.5) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+    text-align: center !important;
+}
+
+#nk-main-content .serie-info h3 {
+    margin: 0 !important;
+    font-size: 1.5rem !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+}
+
+#nk-main-content .form-group {
+    margin-bottom: 2.5rem !important;
+}
+
+#nk-main-content label,
+#nk-main-content .ui-outputlabel {
+    display: block !important;
+    margin-bottom: 0.8rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+}
+
+#nk-main-content input[type="text"],
+#nk-main-content textarea,
+#nk-main-content .ui-inputtext,
+#nk-main-content .ui-inputtextarea {
+    width: 100% !important;
+    padding: 1.2rem !important;
+    background: linear-gradient(135deg, #2e1733, #3b1b43) !important;
+    border: 2px solid rgba(87, 35, 100, 0.6) !important;
+    border-radius: 15px !important;
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    transition: all 0.4s ease !important;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Mejorar significativamente los selectores */
+#nk-main-content select,
+#nk-main-content .ui-selectonemenu {
+    width: 100% !important;
+    padding: 1.2rem !important;
+    background: linear-gradient(135deg, #2e1733, #3b1b43) !important;
+    border: 2px solid rgba(87, 35, 100, 0.6) !important;
+    border-radius: 15px !important;
+    color: #ffffff !important;
+    font-size: 1.1rem !important;
+    transition: all 0.4s ease !important;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    cursor: pointer !important;
+}
+
+#nk-main-content .ui-selectonemenu-label {
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+}
+
+#nk-main-content .ui-selectonemenu-trigger {
+    background: linear-gradient(135deg, #491f53, #572364) !important;
+    border: none !important;
+    border-radius: 0 15px 15px 0 !important;
+    width: 3rem !important;
+    color: #ffffff !important;
+}
+
+#nk-main-content .ui-selectonemenu-trigger .ui-icon {
+    color: #ffffff !important;
+    background: none !important;
+}
+
+#nk-main-content .ui-selectonemenu-panel {
+    background: linear-gradient(135deg, #2e1733, #3b1b43) !important;
+    border: 2px solid rgba(87, 35, 100, 0.6) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+#nk-main-content .ui-selectonemenu-item {
+    color: #ffffff !important;
+    background: transparent !important;
+    padding: 1rem 1.5rem !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    font-weight: 500 !important;
+}
+
+#nk-main-content .ui-selectonemenu-item:hover,
+#nk-main-content .ui-selectonemenu-item.ui-state-highlight {
+    background: linear-gradient(135deg, #491f53, #572364) !important;
+    color: #ffffff !important;
+    transform: translateX(5px) !important;
+}
+
+#nk-main-content select option {
+    background: #2e1733 !important;
+    color: #ffffff !important;
+    padding: 1rem !important;
+}
+
+#nk-main-content select option:hover,
+#nk-main-content select option:checked {
+    background: #491f53 !important;
+    color: #ffffff !important;
+}
+
+#nk-main-content input[type="text"]:focus,
+#nk-main-content textarea:focus,
+#nk-main-content select:focus,
+#nk-main-content .ui-inputtext:focus,
+#nk-main-content .ui-inputtextarea:focus,
+#nk-main-content .ui-selectonemenu:focus,
+#nk-main-content .ui-selectonemenu.ui-state-focus {
+    border-color: #572364 !important;
+    box-shadow: 0 0 0 4px rgba(87, 35, 100, 0.4), inset 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+    outline: none !important;
+    background: linear-gradient(135deg, #3b1b43, #491f53) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Rediseñar completamente los paneles dinámicos */
+#nk-main-content .dynamic-panel {
+    background: linear-gradient(145deg, #2e1733, #3b1b43) !important;
+    padding: 3rem !important;
+    border-radius: 25px !important;
+    margin: 3rem 0 !important;
+    border: 2px solid rgba(87, 35, 100, 0.5) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#nk-main-content .dynamic-panel::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, rgba(87, 35, 100, 0.8), transparent) !important;
+}
+
+/* Unificar y mejorar títulos de secciones */
+#nk-main-content .dynamic-panel h3,
+#nk-main-content .section-title {
+    color: #ffffff !important;
+    font-size: 1.6rem !important;
+    margin: 0 0 2rem 0 !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    padding: 1.5rem !important;
+    background: linear-gradient(135deg, #491f53, #572364) !important;
+    border-radius: 15px !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(87, 35, 100, 0.6) !important;
+    position: relative !important;
+}
+
+#nk-main-content .dynamic-panel h3::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -5px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60px !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, #572364, #491f53) !important;
+    border-radius: 1px !important;
+}
+
+/* Rediseñar completamente los componentes de subida de archivos */
+#nk-main-content .ui-fileupload {
+    background: linear-gradient(145deg, #3b1b43, #491f53) !important;
+    border: 2px solid rgba(87, 35, 100, 0.7) !important;
+    border-radius: 20px !important;
+    padding: 2.5rem !important;
+    margin: 2rem 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+#nk-main-content .ui-fileupload::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+    transition: left 0.8s ease !important;
+}
+
+#nk-main-content .ui-fileupload:hover::before {
+    left: 100% !important;
+}
+
+#nk-main-content .ui-fileupload-buttonbar {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+#nk-main-content .ui-fileupload-choose {
+    background: linear-gradient(135deg, #572364, #491f53) !important;
+    border: none !important;
+    color: #ffffff !important;
+    padding: 1.5rem 3rem !important;
+    border-radius: 15px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.2px !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
+}
+
+#nk-main-content .ui-fileupload-choose::before {
+    content: '📁 ' !important;
+    margin-right: 0.8rem !important;
+    font-size: 1.4rem !important;
+}
+
+#nk-main-content .ui-fileupload-choose:hover {
+    background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+#nk-main-content .ui-fileupload-choose:active {
+    transform: translateY(-2px) scale(1.01) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Crear contenedor elegante para previsualizaciones de archivos */
+#nk-main-content .ui-fileupload-content {
+    background: linear-gradient(135deg, #211224, #2e1733) !important;
+    border: 2px solid rgba(87, 35, 100, 0.4) !important;
+    border-radius: 15px !important;
+    padding: 2rem !important;
+    margin-top: 2rem !important;
+    min-height: 120px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#nk-main-content .ui-fileupload-files {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin-top: 1rem !important;
+}
+
+/* Estilizar elementos individuales de archivo con previsualizaciones */
+#nk-main-content .ui-fileupload-row {
+    background: linear-gradient(135deg, #3b1b43, #491f53) !important;
+    border: 1px solid rgba(87, 35, 100, 0.6) !important;
+    border-radius: 12px !important;
+    padding: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+#nk-main-content .ui-fileupload-row:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(87, 35, 100, 0.8) !important;
+}
+
+/* Mejorar visualización de nombres de archivo */
+#nk-main-content .ui-fileupload-filename {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    margin: 1rem 0 0.5rem 0 !important;
+    padding: 0.8rem 1.2rem !important;
+    background: rgba(87, 35, 100, 0.4) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(87, 35, 100, 0.6) !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+}
+
+/* Estilizar información de tamaño de archivo */
+#nk-main-content .ui-fileupload-size {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    margin-top: 0.5rem !important;
+    padding: 0.4rem 0.8rem !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 6px !important;
+}
+
+/* Crear previsualizaciones de imágenes elegantes */
+#nk-main-content .ui-fileupload-preview {
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 10px !important;
+    object-fit: cover !important;
+    border: 2px solid rgba(87, 35, 100, 0.6) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+#nk-main-content .ui-fileupload-preview:hover {
+    transform: scale(1.05) !important;
+    border-color: #572364 !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Estilizar botones de progreso y cancelar */
+#nk-main-content .ui-fileupload-cancel,
+#nk-main-content .ui-fileupload-upload {
+    background: linear-gradient(135deg, #572364, #491f53) !important;
+    border: none !important;
+    color: #ffffff !important;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    margin: 0.5rem 0.3rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+#nk-main-content .ui-fileupload-cancel:hover,
+#nk-main-content .ui-fileupload-upload:hover {
+    background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Mejorar barras de progreso */
+#nk-main-content .ui-progressbar {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(87, 35, 100, 0.5) !important;
+    border-radius: 10px !important;
+    height: 8px !important;
+    margin: 1rem 0 !important;
+    overflow: hidden !important;
+}
+
+#nk-main-content .ui-progressbar-value {
+    background: linear-gradient(90deg, #572364, #491f53) !important;
+    border-radius: 10px !important;
+    transition: width 0.3s ease !important;
+}
+
+#nk-main-content .ui-button,
+#nk-main-content input[type="submit"],
+#nk-main-content button {
+    background: linear-gradient(135deg, #572364, #491f53) !important;
+    border: none !important;
+    color: #ffffff !important;
+    padding: 1.5rem 4rem !important;
+    border-radius: 20px !important;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    cursor: pointer !important;
+    transition: all 0.4s ease !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5) !important;
+    margin: 3rem auto !important;
+    display: block !important;
+    min-width: 300px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#nk-main-content .ui-button::before,
+#nk-main-content input[type="submit"]::before,
+#nk-main-content button::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left 0.8s ease !important;
+}
+
+#nk-main-content .ui-button:hover::before,
+#nk-main-content input[type="submit"]:hover::before,
+#nk-main-content button:hover::before {
+    left: 100% !important;
+}
+
+#nk-main-content .ui-button:hover,
+#nk-main-content input[type="submit"]:hover,
+#nk-main-content button:hover {
+    background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+    transform: translateY(-5px) scale(1.02) !important;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6) !important;
+}
+
+#nk-main-content .ui-messages,
+#nk-main-content .ui-message {
+    background: linear-gradient(135deg, #3b1b43, #491f53) !important;
+    border: 2px solid rgba(87, 35, 100, 0.6) !important;
+    border-radius: 15px !important;
+    padding: 1.5rem !important;
+    margin: 2rem 0 !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+#nk-main-content .spacer {
+    height: 2rem !important;
+}
+
+/* Mejorar efectos de hover para inputs */
+#nk-main-content input[type="text"]:hover,
+#nk-main-content textarea:hover,
+#nk-main-content select:hover,
+#nk-main-content .ui-inputtext:hover,
+#nk-main-content .ui-inputtextarea:hover,
+#nk-main-content .ui-selectonemenu:hover {
+    border-color: rgba(87, 35, 100, 0.9) !important;
+    box-shadow: 0 6px 12px rgba(87, 35, 100, 0.3), inset 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Responsive design mejorado */
+@media (max-width: 768px) {
+    #nk-main-content {
+        padding: 1rem !important;
+    }
+
+    #nk-main-content .main-container {
+        padding: 2rem !important;
+    }
+
+    #nk-main-content .main-title {
+        font-size: 2.2rem !important;
+    }
+
+    #nk-main-content .dynamic-panel {
+        padding: 2rem !important;
+    }
+
+    #nk-main-content .ui-fileupload-choose {
+        padding: 1rem 2rem !important;
+        font-size: 1rem !important;
+    }
+
+    #nk-main-content .ui-fileupload-files {
+        grid-template-columns: 1fr !important;
+    }
+
+    #nk-main-content .ui-fileupload-preview {
+        width: 100px !important;
+        height: 100px !important;
+    }
+}
+
+/* Animaciones suaves globales */
+#nk-main-content * {
+    transition: all 0.3s ease !important;
+}
+
+/* Efectos especiales para elementos interactivos */
+#nk-main-content .ui-fileupload:hover {
+    border-color: rgba(87, 35, 100, 0.9) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+#nk-main-content .dynamic-panel:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+}

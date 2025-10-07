@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Visualizar Contenidos - #{contenidoBean.serieSeleccionada.STitulo}</title>
+    <style>
+        * { font-family: sans-serif; }
+        h1 { color: #1565C0; text-align: center; }
+        img, video { border-radius: 6px; }
+    </style>
+</h:head>
+
+<h:body>
+
+    <h:form id="formVisualizar">
+
+        <!-- Información de la serie -->
+        <h1>#{contenidoBean.serieSeleccionada.STitulo}</h1>
+
+        <p:panelGrid columns="2" columnClasses="col-6,col-6" style="width:80%; margin:0 auto;">
+            <h:outputLabel value="Imagen Cuadrada:" />
+            <p:graphicImage value="#{contenidoBean.serieSeleccionada.SImagenc}" rendered="#{not empty contenidoBean.serieSeleccionada.SImagenc}" />
+
+            <h:outputLabel value="Imagen Vertical:" />
+            <p:graphicImage value="#{contenidoBean.serieSeleccionada.SImagenv}" rendered="#{not empty contenidoBean.serieSeleccionada.SImagenv}" />
+
+            <h:outputLabel value="Descripción:" />
+            <h:outputText value="#{contenidoBean.serieSeleccionada.SDescripcion}" escape="false" style="grid-column: 1 / span 2;" />
+        </p:panelGrid>
+
+        <br />
+
+        <!-- LISTA DE ANIMES -->
+        <p:panel header="Animes" style="width:80%; margin:10px auto;">
+            <p:dataTable value="#{contenidoBean.animes}" var="c" rowIndexVar="idx" emptyMessage="No hay animes para esta serie">
+                <p:column headerText="#" style="width:40px">
+                    <h:outputText value="#{idx + 1}" />
+                </p:column>
+
+                <p:column headerText="Título">
+                    <h:outputText value="#{c.CTitulo}" />
+                </p:column>
+
+                <p:column headerText="Miniatura">
+                    <p:graphicImage value="#{c.anime.AMiniatura}" rendered="#{not empty c.anime.AMiniatura}" width="120" />
+                </p:column>
+
+                <p:column headerText="Acciones">
+                    <p:commandButton value="Ver" action="#{contenidoBean.verAnime(c)}" ajax="false" />
+                    <p:commandButton value="Editar" actionListener="#{contenidoBean.editar(c)}" update=":formDialog" oncomplete="PF('dlgContenido').show()" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+
+        <!-- LISTA DE MANGAS -->
+        <p:panel header="Mangas" style="width:80%; margin:10px auto;">
+            <p:dataTable value="#{contenidoBean.mangas}" var="c" rowIndexVar="idx" emptyMessage="No hay mangas para esta serie">
+                <p:column headerText="#" style="width:40px">
+                    <h:outputText value="#{idx + 1}" />
+                </p:column>
+
+                <p:column headerText="Título">
+                    <h:outputText value="#{c.CTitulo}" />
+                </p:column>
+
+                <p:column headerText="Portada">
+                    <p:graphicImage value="#{c.manga.MPortada}" rendered="#{not empty c.manga.MPortada}" width="120" />
+                </p:column>
+
+                <p:column headerText="Acciones">
+                    <p:commandButton value="Ver" action="#{contenidoBean.verManga(c)}" ajax="false" />
+                    <p:commandButton value="Editar" actionListener="#{contenidoBean.editar(c)}" update=":formDialog" oncomplete="PF('dlgContenido').show()" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+
+        <!-- LISTA DE NOVELAS -->
+        <p:panel header="Novelas" style="width:80%; margin:10px auto;">
+            <p:dataTable value="#{contenidoBean.novelas}" var="c" rowIndexVar="idx" emptyMessage="No hay novelas para esta serie">
+                <p:column headerText="#" style="width:40px">
+                    <h:outputText value="#{idx + 1}" />
+                </p:column>
+
+                <p:column headerText="Título">
+                    <h:outputText value="#{c.CTitulo}" />
+                </p:column>
+
+                <p:column headerText="Portada">
+                    <p:graphicImage value="#{c.novela.NPortada}" rendered="#{not empty c.novela.NPortada}" width="120" />
+                </p:column>
+
+                <p:column headerText="Acciones">
+                    <p:commandButton value="Ver" action="#{contenidoBean.verNovela(c)}" ajax="false" />
+                    <p:commandButton value="Editar" actionListener="#{contenidoBean.editar(c)}" update=":formDialog" oncomplete="PF('dlgContenido').show()" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+
+        <br/>
+        <p:commandButton value="← Volver a Series" action="/Usuario/series.xhtml?faces-redirect=true" />
+
+    </h:form>
+
+</h:body>
+</html>

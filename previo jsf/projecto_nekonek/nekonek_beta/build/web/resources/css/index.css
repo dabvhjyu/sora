@@ -1,0 +1,664 @@
+/* Added CSS reset to remove default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-purple: #572364;
+  --secondary-purple: #d4c4e4;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+}
+
+/* Contenido principal */
+.main-content {
+  background-color: white;
+  color: black;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Carrusel */
+.carousel {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-shadow-strong {
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.7), 0 0 18px rgba(0, 0, 0, 0.6), 0 0 24px
+    rgba(0, 0, 0, 0.5);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.8;
+}
+
+.slide-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.slide-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 5%;
+  z-index: 3;
+}
+
+.slide-title {
+  font-family: "Arial", sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.7), 0 0 18px rgba(0, 0, 0, 0.6), 0 0 24px
+    rgba(0, 0, 0, 0.5);
+}
+
+.slide-original-title,
+.slide-genres span,
+.slide-info,
+.slide-description,
+.tag,
+.btn-watch {
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.7), 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.slide-original-title {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.slide-genres {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.slide-genres span {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.slide-genres span:not(:last-child)::after {
+  content: "•";
+  margin-left: 15px;
+}
+
+.slide-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.star {
+  color: #ffd700;
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tag {
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tag.emission {
+  background-color: #00b300;
+}
+
+.slide-description {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Updated button colors and hover effects to use new purple palette */
+.btn-watch {
+  display: inline-block;
+  background-color: var(--primary-purple);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.1s ease;
+  width: fit-content;
+}
+
+.btn-watch:hover {
+  background-color: #6c2d7c;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Navegación del carrusel */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.nav-btn:hover {
+  opacity: 1;
+}
+
+/* Indicadores */
+.carousel-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: white;
+}
+
+/* Rankings Section */
+.rankings-section {
+  padding: 40px 0;
+  background-color: #ffffff;
+}
+
+.rankings-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 20px;
+}
+
+.ranking-column {
+  background-color: #3b1b43;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.ranking-title {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ranking-list {
+  list-style-position: inside;
+  padding: 0;
+  counter-reset: ranking;
+}
+
+.ranking-item {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.ranking-item::before {
+  counter-increment: ranking;
+  content: counter(ranking);
+  position: absolute;
+  left: 10px;
+  color: #e4d4f4;
+  font-weight: bold;
+}
+
+.ranking-basic {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ranking-basic .title {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.ranking-basic .update {
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.ranking-expanded {
+  display: none;
+  padding: 15px;
+  background-color: #572364;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.ranking-item:hover .ranking-expanded {
+  display: flex;
+  gap: 15px;
+}
+
+.ranking-expanded .cover {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.expanded-content {
+  flex: 1;
+}
+
+.expanded-content h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.expanded-content p {
+  color: rgb(255, 255, 255);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Updated watch-now button colors and hover effects */
+.watch-now {
+    display: inline-block;
+    background-color: #e4d4f4;
+    color: #2e1733;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.watch-now:hover {
+  background: #b89ed2 !important;
+  color: white !important;
+  transform: translateY(-2px);
+}
+
+/* Genre Section */
+.genre-container {
+  margin-top: 40px;
+  background-color: #3b1b43;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genre-tabs-navigation {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.genre-tab-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Updated active tab colors with proper hover effects */
+.genre-tab-button.active,
+.genre-tab-button:hover {
+  background-color: #e4d4f4;
+  color: #2e1733 !important;
+  border-radius: 20px;
+}
+
+.genre-grid {
+  max-width: 1200px;
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.genre-grid.active {
+  display: grid;
+}
+
+.genre-card {
+  background-color: #572364;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.genre-card:hover {
+  transform: translateY(-5px);
+}
+
+.genre-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e4d4f4;
+  color: #2e1733;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.genre-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.genre-name {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.genre-description {
+  padding: 0 10px 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.genre-stats {
+  padding: 10px;
+  font-size: 14px;
+  color: #e4d4f4;
+}
+
+/* Latest Publications */
+.latest-publications {
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+
+.page-title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  font-family: "Arial", sans-serif;
+}
+
+.latest-publications .page-title {
+  color: #000000;
+}
+
+.rankings-section .page-title,
+.genre-container .page-title,
+.series-container .page-title {
+  color: #ffffff;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  gap: 20px;
+  padding: 0 20px;
+  background-color: transparent;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+}
+
+.manga-card {
+  background-color: #572364;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 120px;
+}
+
+.manga-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Most Popular Section */
+.obras-destacadas {
+  background-color: #ffffff;
+  padding: 40px 0;
+}
+
+.obras-destacadas h2 {
+  color: #000;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  font-family: "Arial", sans-serif;
+}
+
+.obras-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+  gap: 20px;
+  padding: 0 20px;
+  justify-content: center;
+}
+
+.obra-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100px;
+}
+
+.obra-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Regional Series Section */
+.series-container {
+  margin-top: 40px;
+  background-color: #3b1b43;
+  border-radius: 8px;
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tabs-navigation {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.tab-button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Updated tab button active colors with proper hover effects */
+.tab-button.active, .tab-button:hover {
+    background-color: #e4d4f4;
+    color: #2e1733;
+    border-radius: 20px;
+}
+
+.series-grid {
+  max-width: 1200px;
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.series-grid.active {
+  display: grid;
+}
+
+.series-card {
+  background-color: #572364;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.series-card:hover {
+  transform: translateY(-5px);
+}
+
+.series-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.series-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e4d4f4;
+  color: #2e1733;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.series-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.series-name {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.series-description {
+  padding: 0 10px 10px;
+  font-size: 14px;
+  color: #ccc;
+}

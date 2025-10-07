@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Iniciar Sesión - NekoNek</title>
+        <h:outputStylesheet library="css" name="invitadoheader.css" />
+        <h:outputStylesheet library="css" name="registro.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    </h:head>
+    <h:body id="nk-unique-body">
+        <!-- HEADER -->
+        <header id="nk-header-main">
+            <div id="nk-header-container">
+                <!-- Logo (izquierda) -->
+                <div id="nk-logo-section">
+                    <a class="logo-container" href="index.xhtml">
+                        <h:graphicImage library="images" name="logo.png" alt="Logo" styleClass="logo-image" />
+                    </a>
+                </div>
+
+                <!-- Navegación central -->
+                <nav id="nk-nav-center">
+                    <a href="index.xhtml" class="nk-nav-link">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="biblioteca.xhtml" class="nk-nav-link">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span>Biblioteca</span>
+                    </a>
+                    <div id="nk-search-container">
+                        <input type="text" id="nk-search-input" placeholder="Buscar..." />
+                    </div>
+                </nav>
+
+                <!-- Botones de autenticación (derecha) -->
+                <div id="nk-auth-section">
+                    <a href="login.xhtml" id="nk-login-btn" class="nk-auth-btn">
+                        <svg class="nk-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Iniciar Sesión</span>
+                    </a>
+                    <a href="registro.xhtml" id="nk-register-btn" class="nk-auth-btn">
+                        <svg class="nk-auth-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <line x1="19" y1="8" x2="19" y2="14"/>
+                            <line x1="22" y1="11" x2="16" y2="11"/>
+                        </svg>
+                        <span>Registrarse</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main id="nk-main-content">
+            <!-- Nuevo diseño de dos columnas para el formulario -->
+            <div class="main-container">
+                <!-- Columna izquierda - Formulario -->
+                <div class="form-section">
+                    <div class="form-container">
+                        <h2>Registro de Usuario</h2>
+
+                        <!-- Mostrar mensajes -->
+                        <h:panelGroup rendered="#{not empty registroBean.mensaje}">
+                            <div class="mensaje #{registroBean.tipoMensaje}">
+                                #{registroBean.mensaje}
+                            </div>
+                        </h:panelGroup>
+
+                        <h:form>
+                            <!-- Nombre -->
+                            <div class="form-group">
+                                <div class="label-wrapper">
+                                    <h:outputLabel for="nombre" value="Nombre Completo:" />
+                                    <span class="required">*</span>
+                                </div>
+                                <h:inputText id="nombre" 
+                                             value="#{registroBean.nombre}"
+                                             required="true"
+                                             requiredMessage="El nombre es obligatorio"
+                                             maxlength="100" />
+                                <h:message for="nombre" styleClass="error-message" />
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <div class="label-wrapper">
+                                    <h:outputLabel for="email" value="Email:" />
+                                    <span class="required">*</span>
+                                </div>
+                                <h:inputText id="email" 
+                                             value="#{registroBean.email}"
+                                             required="true"
+                                             requiredMessage="El email es obligatorio" />
+                                <h:message for="email" styleClass="error-message" />
+                            </div>
+
+                            <!-- Contraseña -->
+                            <div class="form-group">
+                                <div class="label-wrapper">
+                                    <h:outputLabel for="password" value="Contraseña:" />
+                                    <span class="required">*</span>
+                                </div>
+                                <h:inputSecret id="password" 
+                                               value="#{registroBean.password}"
+                                               required="true"
+                                               requiredMessage="La contraseña es obligatoria" />
+                                <h:message for="password" styleClass="error-message" />
+                            </div>
+
+                            <!-- Confirmar Contraseña -->
+                            <div class="form-group">
+                                <div class="label-wrapper">
+                                    <h:outputLabel for="confirmarPassword" value="Confirmar Contraseña:" />
+                                    <span class="required">*</span>
+                                </div>
+                                <h:inputSecret id="confirmarPassword" 
+                                               value="#{registroBean.confirmarPassword}"
+                                               required="true"
+                                               requiredMessage="Debe confirmar la contraseña" />
+                                <h:message for="confirmarPassword" styleClass="error-message" />
+                            </div>
+
+                            <!-- Teléfono -->
+                            <div class="form-group">
+                                <div class="label-wrapper">
+                                    <h:outputLabel for="telefono" value="Teléfono:" />
+                                </div>
+                                <h:inputText id="telefono" 
+                                             value="#{registroBean.telefono}"
+                                             maxlength="20" />
+                                <h:message for="telefono" styleClass="error-message" />
+                            </div>
+
+                            <!-- Descripción -->
+                            <div class="form-group">
+                                <div class="label-wrapper">
+                                    <h:outputLabel for="descripcion" value="Descripción:" />
+                                </div>
+                                <h:inputTextarea id="descripcion" 
+                                                 value="#{registroBean.descripcion}"
+                                                 rows="3" />
+                                <h:message for="descripcion" styleClass="error-message" />
+                            </div>
+
+                            <!-- Botón de registro -->
+                            <h:commandButton value="Registrarse" 
+                                             action="#{registroBean.registrarUsuario}"
+                                             styleClass="btn btn-primary" />
+                        </h:form>
+
+
+                        <!-- Link al login -->
+                        <div class="login-link">
+                            <p>¿Ya tienes cuenta? <h:link outcome="login" value="Iniciar Sesión" /></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna derecha - Imagen/Logo -->
+                <div class="image-section">
+                    <div class="logo-container">
+                        <h:graphicImage library="images" name="logo3.png" alt="NekoNek Logo"
+                                        styleClass="permanent-logo"
+                                        width="366" height="550"/> 
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="nk-footer-main">
+            <div id="nk-footer-container">
+                <div id="nk-footer-links">
+                    <a href="#" class="nk-footer-link">Preguntas Frecuentes</a>
+                    <a href="#" class="nk-footer-link">Política de Privacidad</a>
+                    <a href="#" class="nk-footer-link">Términos de Uso</a>
+                    <a href="#" class="nk-footer-link">Contáctanos</a>
+                </div>
+
+                <div id="nk-footer-info">
+                    <div id="nk-company-name">NekoNek Entertainment S.L.</div>
+                    <div id="nk-copyright">© 2025 nekonek.com Todos los Derechos Reservados</div>
+                    <div id="nk-contact-info">
+                        Horario de Atención: Lunes a Viernes 9:30 — 19:00 | Teléfono: 3224461311 | Email: jyu@nekonek.com
+                    </div>
+                    <div id="nk-license-info">Licencia de Publicación Digital: NKWEB-2024-001</div>
+                </div>
+            </div>
+        </footer>
+    </h:body>
+</html>

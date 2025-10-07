@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      lang="es">
+
+<h:head>
+    <meta charset="UTF-8" />
+    <title>Editar Contenido</title>
+    <h:outputStylesheet library="css" name="usuarioheader.css" />
+    <h:outputStylesheet library="css" name="seriaa.css" />
+</h:head>
+
+<h:body>
+    <h:form id="formEditar" enctype="multipart/form-data">
+
+        <!-- Mensajes globales -->
+        <p:growl id="growl" showDetail="true" life="4000"/>
+
+        <h1 class="main-title">✏ Editar Contenido</h1>
+
+        <!-- Serie -->
+        <h3>📺 Serie: #{contenidoBean.serieSeleccionada.STitulo}</h3>
+
+        <!-- ================== CAMPOS GENERALES ================== -->
+        <div class="form-group">
+            <h:outputLabel for="titulo" value="Título:" />
+            <h:inputText id="titulo" value="#{contenidoBean.contenido.CTitulo}" required="true"
+                         styleClass="input-text"/>
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="descripcion" value="Descripción:" />
+            <h:inputTextarea id="descripcion" value="#{contenidoBean.contenido.CDescripcion}" 
+                            rows="4" cols="40" styleClass="input-textarea"/>
+        </div>
+
+        <div class="form-group">
+            <h:outputLabel for="tipo" value="Tipo de contenido:" />
+            <h:selectOneMenu id="tipo" value="#{contenidoBean.contenido.TId}" disabled="true">
+                <f:selectItems value="#{contenidoBean.tiposPermitidos}"
+                               var="t"
+                               itemValue="#{t.TId}"
+                               itemLabel="#{t.TNombre}" />
+            </h:selectOneMenu>
+        </div>
+
+        <!-- ================== PANEL SEGÚN EL TIPO ================== -->
+        <h:panelGroup id="panelesTipo" layout="block">
+
+            <!-- 🎬 ANIME -->
+            <h:panelGroup rendered="#{contenidoBean.contenido.TId == 1}">
+                <h3>🎥 Video actual:</h3>
+                <h:panelGroup rendered="#{not empty contenidoBean.contenido.archivo}">
+                    <video width="320" height="240" controls="controls" style="margin-bottom:10px;">
+    <source src="#{contenidoBean.contenido.archivo}" type="video/mp4"/>
+    Tu navegador no soporta video.
+</video>
+                </h:panelGroup>
+                <p:fileUpload value="#{contenidoBean.archivo}" mode="simple" label="Reemplazar Video"/>
+
+                <h3>🖼 Miniatura actual:</h3>
+                <h:panelGroup rendered="#{not empty contenidoBean.getMiniaturaAnime(contenidoBean.contenido)}">
+                    <p:graphicImage value="#{contenidoBean.getMiniaturaAnime(contenidoBean.contenido)}"
+                                    style="max-width:150px; margin-bottom:10px;"/>
+                </h:panelGroup>
+                <p:fileUpload value="#{contenidoBean.miniatura}" mode="simple" label="Reemplazar Miniatura"/>
+            </h:panelGroup>
+
+            <!-- 📖 MANGA -->
+            <h:panelGroup rendered="#{contenidoBean.contenido.TId == 2}">
+                <h3>📕 Portada actual:</h3>
+                <h:panelGroup rendered="#{not empty contenidoBean.getPortadaManga(contenidoBean.contenido)}">
+                    <p:graphicImage value="#{contenidoBean.getPortadaManga(contenidoBean.contenido)}"
+                                    style="max-width:150px; margin-bottom:10px;"/>
+                </h:panelGroup>
+                <p:fileUpload value="#{contenidoBean.portada}" mode="simple" label="Reemplazar Portada"/>
+
+                <h3>📚 Páginas actuales:</h3>
+                <ui:repeat value="#{contenidoBean.contenido.listaImagenes}" var="img">
+                    <p:graphicImage value="#{'/' += img}" 
+                                    style="max-width:100px; margin:5px; border-radius:5px; box-shadow:0 0 5px #000"/>
+                </ui:repeat>
+
+                <p:fileUpload value="#{contenidoBean.imagenes}" mode="advanced"
+                              multiple="true" label="Añadir/Reemplazar Imágenes"/>
+            </h:panelGroup>
+
+            <!-- 📚 NOVELA -->
+            <h:panelGroup rendered="#{contenidoBean.contenido.TId == 3}">
+                <h3>📄 Archivo PDF actual:</h3>
+                <h:panelGroup rendered="#{not empty contenidoBean.contenido.archivo}">
+                    <h:outputLink value="#{contenidoBean.contenido.archivo}" target="_blank">
+                        Ver PDF
+                    </h:outputLink>
+                </h:panelGroup>
+                <p:fileUpload value="#{contenidoBean.archivo}" mode="simple" label="Reemplazar PDF"/>
+
+                <h3>📕 Portada actual:</h3>
+                <h:panelGroup rendered="#{not empty contenidoBean.getPortadaNovela(contenidoBean.contenido)}">
+                    <p:graphicImage value="#{contenidoBean.getPortadaNovela(contenidoBean.contenido)}"
+                                    style="max-width:150px; margin-bottom:10px;"/>
+                </h:panelGroup>
+                <p:fileUpload value="#{contenidoBean.portada}" mode="simple" label="Reemplazar Portada"/>
+
+                <div class="form-group">
+                    <h:outputLabel for="estado" value="Estado:" />
+                    <h:selectOneMenu id="estado" value="#{contenidoBean.contenido.CCompleto}">
+                        <f:selectItems value="#{contenidoBean.estados}" var="e"
+                                       itemValue="#{e.EId}" itemLabel="#{e.ENombre}" />
+                    </h:selectOneMenu>
+                </div>
+            </h:panelGroup>
+        </h:panelGroup>
+
+        <!-- ================== BOTONES ================== -->
+        <div class="form-actions" style="margin-top:20px;">
+            <p:commandButton value="💾 Actualizar"
+                             action="#{contenidoBean.actualizar}"
+                             ajax="false"
+                             styleClass="ui-button-success"/>
+            <p:commandButton value="❌ Cancelar"
+                             action="/Usuario/ver.xhtml?faces-redirect=true"
+                             ajax="false"
+                             styleClass="ui-button-secondary"/>
+        </div>
+
+        <p:messages globalOnly="true" showDetail="true"/>
+    </h:form>
+</h:body>
+</html>

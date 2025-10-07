@@ -1,0 +1,351 @@
+* { font-family: sans-serif; }
+        h1 { color:#1565C0; text-align:center; margin-bottom: 20px; }
+        img.thumb { border-radius: 6px; max-height: 120px; max-width: 100%; }
+        img.thumb:hover { transform:scale(1.1); transition:0.3s; }
+        .actions { text-align: center; }
+        .titulo { font-weight: bold; font-size: 1rem; }
+        .ui-datatable td, .ui-datatable th { text-align: center; vertical-align: middle; }
+
+        /* CSS completamente aislado para #nk-main-content */
+        #nk-main-content {
+            background: linear-gradient(135deg, #000000, #150b16) !important;
+            min-height: 100vh !important;
+            padding: 2rem !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            color: #ffffff !important;
+        }
+
+        #nk-main-content .main-container {
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            background: linear-gradient(145deg, #211224, #2e1733) !important;
+            border-radius: 25px !important;
+            padding: 3rem !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(87, 35, 100, 0.4) !important;
+        }
+
+        #nk-main-content .main-title {
+            text-align: center !important;
+            font-size: 3rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 3rem !important;
+            background: linear-gradient(135deg, #572364, #491f53) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            text-shadow: 0 4px 8px rgba(87, 35, 100, 0.4) !important;
+            position: relative !important;
+        }
+
+        #nk-main-content .main-title::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -10px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 100px !important;
+            height: 3px !important;
+            background: linear-gradient(90deg, #572364, #491f53) !important;
+            border-radius: 2px !important;
+        }
+
+        /* Hide original JSF tables and create modern card layout */
+        #nk-main-content .ui-datatable {
+            display: none !important;
+        }
+
+        #nk-main-content .ui-panel-content {
+            background: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        #nk-main-content .ui-panel {
+            background: transparent !important;
+            border: none !important;
+            margin-bottom: 4rem !important;
+        }
+
+        #nk-main-content .ui-panel-titlebar {
+            background: linear-gradient(135deg, #491f53, #572364) !important;
+            border: none !important;
+            border-radius: 20px !important;
+            padding: 2rem !important;
+            margin-bottom: 2rem !important;
+            text-align: center !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        #nk-main-content .ui-panel-title {
+            color: #ffffff !important;
+            font-size: 2rem !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            margin: 0 !important;
+        }
+
+        /* Create modern card grid system */
+        #nk-main-content .cards-container {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+            gap: 2rem !important;
+            margin-top: 2rem !important;
+        }
+
+        #nk-main-content .content-card {
+            background: linear-gradient(145deg, #2e1733, #3b1b43) !important;
+            border: 2px solid rgba(87, 35, 100, 0.5) !important;
+            border-radius: 20px !important;
+            padding: 2rem !important;
+            transition: all 0.4s ease !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        #nk-main-content .content-card::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+            transition: left 0.8s ease !important;
+        }
+
+        #nk-main-content .content-card:hover::before {
+            left: 100% !important;
+        }
+
+        #nk-main-content .content-card:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6) !important;
+            border-color: rgba(87, 35, 100, 0.8) !important;
+        }
+
+        #nk-main-content .card-image {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: cover !important;
+            border-radius: 15px !important;
+            margin-bottom: 1.5rem !important;
+            border: 2px solid rgba(87, 35, 100, 0.6) !important;
+            transition: all 0.3s ease !important;
+        }
+
+        #nk-main-content .card-image:hover {
+            transform: scale(1.05) !important;
+            border-color: #572364 !important;
+        }
+
+        #nk-main-content .card-title {
+            color: #ffffff !important;
+            font-size: 1.4rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 1rem !important;
+            text-align: center !important;
+            padding: 1rem !important;
+            background: linear-gradient(135deg, #491f53, #572364) !important;
+            border-radius: 12px !important;
+            border: 1px solid rgba(87, 35, 100, 0.6) !important;
+        }
+
+        #nk-main-content .card-description {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 2rem !important;
+            padding: 1rem !important;
+            background: rgba(0, 0, 0, 0.3) !important;
+            border-radius: 10px !important;
+            border: 1px solid rgba(87, 35, 100, 0.3) !important;
+            max-height: 120px !important;
+            overflow-y: auto !important;
+        }
+
+        #nk-main-content .card-actions {
+            display: flex !important;
+            gap: 0.8rem !important;
+            justify-content: center !important;
+            flex-wrap: wrap !important;
+        }
+
+        #nk-main-content .card-actions .ui-button {
+            background: linear-gradient(135deg, #572364, #491f53) !important;
+            border: none !important;
+            color: #ffffff !important;
+            padding: 0.8rem 1.5rem !important;
+            border-radius: 12px !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.8px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
+            min-width: auto !important;
+            margin: 0 !important;
+            display: inline-block !important;
+        }
+
+        #nk-main-content .card-actions .ui-button:hover {
+            background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        #nk-main-content .card-actions .ui-button-success {
+            background: linear-gradient(135deg, #572364, #491f53) !important;
+        }
+
+        #nk-main-content .card-actions .ui-button-info {
+            background: linear-gradient(135deg, #3b1b43, #491f53) !important;
+        }
+
+        #nk-main-content .card-actions .ui-button-warning {
+            background: linear-gradient(135deg, #491f53, #572364) !important;
+        }
+
+        #nk-main-content .card-actions .ui-button-danger {
+            background: linear-gradient(135deg, #2e1733, #491f53) !important;
+        }
+
+        /* Style main action buttons */
+        #nk-main-content .main-actions {
+            text-align: center !important;
+            margin-bottom: 3rem !important;
+        }
+
+        #nk-main-content .main-actions .ui-button {
+            background: linear-gradient(135deg, #572364, #491f53) !important;
+            border: none !important;
+            color: #ffffff !important;
+            padding: 1.5rem 3rem !important;
+            border-radius: 20px !important;
+            font-size: 1.2rem !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            cursor: pointer !important;
+            transition: all 0.4s ease !important;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5) !important;
+            margin: 0 1rem !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        #nk-main-content .main-actions .ui-button::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+            transition: left 0.8s ease !important;
+        }
+
+        #nk-main-content .main-actions .ui-button:hover::before {
+            left: 100% !important;
+        }
+
+        #nk-main-content .main-actions .ui-button:hover {
+            background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+            transform: translateY(-5px) scale(1.02) !important;
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        /* Style confirmation dialog */
+        #nk-main-content .ui-dialog {
+            background: linear-gradient(145deg, #2e1733, #3b1b43) !important;
+            border: 2px solid rgba(87, 35, 100, 0.6) !important;
+            border-radius: 20px !important;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        #nk-main-content .ui-dialog-titlebar {
+            background: linear-gradient(135deg, #491f53, #572364) !important;
+            border: none !important;
+            border-radius: 20px 20px 0 0 !important;
+            color: #ffffff !important;
+        }
+
+        #nk-main-content .ui-dialog-content {
+            background: transparent !important;
+            color: #ffffff !important;
+            padding: 2rem !important;
+        }
+
+        /* Empty state styling */
+        #nk-main-content .empty-state {
+            text-align: center !important;
+            padding: 4rem 2rem !important;
+            background: linear-gradient(145deg, #2e1733, #3b1b43) !important;
+            border: 2px dashed rgba(87, 35, 100, 0.5) !important;
+            border-radius: 20px !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+            font-size: 1.2rem !important;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            #nk-main-content {
+                padding: 1rem !important;
+            }
+            
+            #nk-main-content .main-container {
+                padding: 2rem !important;
+            }
+            
+            #nk-main-content .main-title {
+                font-size: 2.2rem !important;
+            }
+
+            #nk-main-content .cards-container {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            #nk-main-content .content-card {
+                padding: 1.5rem !important;
+            }
+
+            #nk-main-content .main-actions .ui-button {
+                padding: 1rem 2rem !important;
+                font-size: 1rem !important;
+                margin: 0.5rem !important;
+            }
+        }
+
+        /* Pagination styling */
+        #nk-main-content .ui-paginator {
+            background: linear-gradient(135deg, #3b1b43, #491f53) !important;
+            border: 2px solid rgba(87, 35, 100, 0.5) !important;
+            border-radius: 15px !important;
+            padding: 1rem !important;
+            margin-top: 2rem !important;
+            text-align: center !important;
+        }
+
+        #nk-main-content .ui-paginator .ui-paginator-page,
+        #nk-main-content .ui-paginator .ui-paginator-next,
+        #nk-main-content .ui-paginator .ui-paginator-prev {
+            background: linear-gradient(135deg, #572364, #491f53) !important;
+            border: none !important;
+            color: #ffffff !important;
+            padding: 0.8rem 1.2rem !important;
+            border-radius: 10px !important;
+            margin: 0 0.3rem !important;
+            transition: all 0.3s ease !important;
+        }
+
+        #nk-main-content .ui-paginator .ui-paginator-page:hover,
+        #nk-main-content .ui-paginator .ui-paginator-next:hover,
+        #nk-main-content .ui-paginator .ui-paginator-prev:hover {
+            background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+            transform: translateY(-2px) !important;
+        }

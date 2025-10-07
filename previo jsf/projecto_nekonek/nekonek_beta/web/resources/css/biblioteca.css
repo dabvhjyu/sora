@@ -1,0 +1,227 @@
+/* Estilos aislados solo para el main */
+#nk-main-content .biblioteca-main-container {
+    background: #000000 !important;
+    min-height: 100vh !important;
+    padding: 20px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+#nk-main-content .biblioteca-title {
+    color: #b19cd9 !important;
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+    letter-spacing: 1px !important;
+}
+
+#nk-main-content .biblioteca-filters-container {
+    background: linear-gradient(135deg, #572364 0%, #3b1b43 100%) !important;
+    border-radius: 12px !important;
+    padding: 25px !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+#nk-main-content .biblioteca-filters-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+}
+
+#nk-main-content .biblioteca-filter-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+#nk-main-content .biblioteca-filter-label {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+}
+
+#nk-main-content .biblioteca-search-input
+{
+    background: #211224 !important;
+    border: 2px solid #491f53 !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    min-width: 550px !important;
+    transition: all 0.3s ease !important;
+}
+
+
+#nk-main-content .biblioteca-select {
+    background: #211224 !important;
+    border: 2px solid #491f53 !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    min-width: 250px !important;
+    transition: all 0.3s ease !important;
+}
+
+#nk-main-content .biblioteca-search-input:focus,
+#nk-main-content .biblioteca-select:focus {
+    border-color: #b19cd9 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(177, 156, 217, 0.2) !important;
+}
+
+#nk-main-content .biblioteca-genres-section {
+    margin-bottom: 20px !important;
+}
+
+#nk-main-content .biblioteca-genres-label {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+
+#nk-main-content .biblioteca-buttons-container {
+    display: flex !important;
+    gap: 15px !important;
+    justify-content: flex-end !important;
+}
+
+#nk-main-content .biblioteca-btn {
+    background: linear-gradient(135deg, #2e1733 0%, #150b16 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+#nk-main-content .biblioteca-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(46, 23, 51, 0.4) !important;
+}
+
+#nk-main-content .biblioteca-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 20px !important;
+    padding: 20px 0 !important;
+}
+
+#nk-main-content .biblioteca-series-card {
+    background: linear-gradient(145deg, #211224 0%, #150b16 100%) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid #2e1733 !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
+}
+
+#nk-main-content .biblioteca-series-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 25px rgba(87, 35, 100, 0.4) !important;
+    border-color: #491f53 !important;
+}
+
+#nk-main-content .biblioteca-card-image-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 280px !important;
+    overflow: hidden !important;
+}
+
+#nk-main-content .biblioteca-card-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+}
+
+#nk-main-content .biblioteca-series-card:hover .biblioteca-card-image {
+    transform: scale(1.05) !important;
+}
+
+#nk-main-content .biblioteca-card-label {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    background: rgba(87, 35, 100, 0.9) !important;
+    color: #ffffff !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+#nk-main-content .biblioteca-card-content {
+    padding: 15px !important;
+}
+
+#nk-main-content .biblioteca-card-title {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin: 0 0 10px 0 !important;
+    line-height: 1.3 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+#nk-main-content .biblioteca-card-description {
+    color: #b19cd9 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+#nk-main-content .biblioteca-card-description strong {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #nk-main-content .biblioteca-filters-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    #nk-main-content .biblioteca-filter-group {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    #nk-main-content .biblioteca-search-input,
+    #nk-main-content .biblioteca-select {
+        width: 100% !important;
+        min-width: unset !important;
+    }
+
+    #nk-main-content .biblioteca-buttons-container {
+        justify-content: center !important;
+    }
+
+    #nk-main-content .biblioteca-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important;
+        gap: 15px !important;
+    }
+}

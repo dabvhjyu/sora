@@ -1,0 +1,633 @@
+/* TODOS LOS ESTILOS ENCAPSULADOS DENTRO DE .profile-page-container */
+.profile-page-container {
+  --primary-purple: #572364;
+  --secondary-purple: #d4c4e4;
+  --dark-purple: #3b1b43;
+  --darker-purple: #2e1733;
+  --darkest-purple: #211224;
+  --accent-purple: #150b16;
+  --black: #000000;
+  /* Added harmonious hover colors from extracted palette */
+  --hover-purple-dark: #6c2d7c;
+  --hover-purple-medium: #b89ed2;
+  --hover-purple-light: #e4d4f4;
+
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.profile-page-container {
+  background: linear-gradient(135deg, var(--darkest-purple) 0%, var(--accent-purple) 50%, var(--black) 100%);
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+/* Added filter styles for search and dropdowns */
+.profile-page-container .filters-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-page-container .search-input {
+  background: var(--darker-purple);
+  border: 2px solid var(--dark-purple);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.profile-page-container .search-input::placeholder {
+  color: #a855f7;
+  opacity: 0.7;
+}
+
+.profile-page-container .filter-dropdown {
+  background: var(--darker-purple);
+  border: 2px solid var(--dark-purple);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: white;
+  font-size: 1rem;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.profile-page-container .filter-dropdown:focus {
+  outline: none;
+  border-color: var(--primary-purple) !important; /* Added !important */
+  box-shadow: 0 0 0 0.2rem rgba(87, 35, 100, 0.25) !important; /* Added purple focus shadow */
+}
+
+/* Added more specific selectors to override Bootstrap styles */
+.profile-page-container select.filter-dropdown,
+.profile-page-container .form-select {
+  background: var(--darker-purple) !important;
+  border: 2px solid var(--dark-purple) !important;
+  color: white !important;
+}
+
+.profile-page-container select.filter-dropdown:focus,
+.profile-page-container .form-select:focus {
+  border-color: var(--primary-purple) !important;
+  box-shadow: 0 0 0 0.25rem rgba(87, 35, 100, 0.25) !important;
+  background: var(--darker-purple) !important;
+}
+
+/* Override Bootstrap's blue focus styles completely */
+.profile-page-container .form-select:focus {
+  border-color: var(--primary-purple) !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgba(87, 35, 100, 0.25) !important;
+}
+
+/* Added dropdown option styles to use purple instead of blue */
+.profile-page-container .filter-dropdown option {
+  background: var(--darker-purple);
+  color: white;
+}
+
+.profile-page-container .filter-dropdown option:checked,
+.profile-page-container .filter-dropdown option:hover {
+  background: var(--primary-purple) !important;
+  color: white !important;
+}
+
+.profile-page-container .profile-header {
+  background: linear-gradient(135deg, var(--dark-purple), var(--darker-purple));
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+.profile-page-container .profile-image-container {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.profile-page-container .profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--darker-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--dark-purple);
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-page-container .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-page-container .profile-placeholder {
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.6;
+  color: #a855f7;
+}
+
+.profile-page-container .upload-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--primary-purple);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid var(--dark-purple);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+.profile-page-container .upload-icon:hover {
+  /* Updated to use consistent gradient pattern */
+  background-color: #6c2d7c !important;
+  transform: scale(1.1);
+  color: white !important;
+}
+
+.profile-page-container .profile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.profile-page-container .profile-subtitle {
+  opacity: 0.8;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #a855f7;
+}
+
+.profile-page-container .editor-badge {
+  background: rgba(87, 35, 100, 0.3);
+  color: #a855f7;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Made both buttons identical with same styling */
+.profile-page-container .upload-btn {
+  background: var(--primary-purple);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Updated upload button hover to use consistent purple gradient */
+.profile-page-container .upload-btn:hover {
+  /* Ensured consistent gradient hover effect */
+  background-color: #6c2d7c !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(87, 35, 100, 0.4);
+  color: white !important;
+}
+
+/* Enhanced Table Styles for Better Layout */
+.profile-page-container .table-container {
+  background: var(--darker-purple);
+  border-radius: 15px;
+  /* Completely removed overflow to eliminate any scrollbars */
+  overflow: visible;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 100%;
+}
+
+.profile-page-container .table {
+  width: 100%;
+  margin-bottom: 0;
+  table-layout: fixed;
+  background: var(--darker-purple);
+}
+
+/* Updated table header background */
+.profile-page-container .table thead th {
+  background: var(--darkest-purple);
+  color: white;
+  padding: 1rem;
+  border-color: var(--darker-purple);
+  font-weight: 600;
+}
+
+/* Redistributed column widths based on importance */
+.profile-page-container .table th:nth-child(1) /* Título */,
+.profile-page-container .table td:nth-child(1) {
+  width: 15%; /* Increased for title */
+}
+
+.profile-page-container .table th:nth-child(2) /* Descripción */,
+.profile-page-container .table td:nth-child(2) {
+  width: 30%; /* Increased for description */
+}
+
+.profile-page-container .table th:nth-child(3) /* Episodios */,
+.profile-page-container .table td:nth-child(3) {
+  width: 8%; /* Kept small for episodes */
+}
+
+.profile-page-container .table th:nth-child(4) /* Estado */,
+.profile-page-container .table td:nth-child(4) {
+  width: 12%; /* Increased from 10% to 12% */
+}
+
+.profile-page-container .table th:nth-child(5) /* Tipo */,
+.profile-page-container .table td:nth-child(5) {
+  width: 9%; /* Increased from 8% to 9% */
+}
+
+.profile-page-container .table th:nth-child(6) /* Miniatura */,
+.profile-page-container .table td:nth-child(6) {
+  width: 12%;
+}
+
+.profile-page-container .table th:nth-child(7) /* Acciones */,
+.profile-page-container .table td:nth-child(7) {
+  width: 14%; /* Reduced from 17% to 14% */
+}
+
+.profile-page-container .table tbody tr {
+  background: var(--dark-purple) !important;
+  /* Removed transition to eliminate hover preparation */
+}
+
+/* Completely removed hover effects from table rows */
+.profile-page-container .table tbody tr:hover {
+  /* No hover effects */
+}
+
+.profile-page-container .table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-color: var(--darker-purple);
+  color: white;
+  background: inherit;
+  /* Added overflow controls to prevent content spilling between columns */
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 0; /* Forces table-layout: fixed to work properly */
+}
+
+/* Allow description column to wrap text since it needs more content visibility */
+.profile-page-container .table td:nth-child(2) {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.profile-page-container .stats-section {
+  background: var(--dark-purple);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+.profile-page-container .stats-title {
+  color: white;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.profile-page-container .time-filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.profile-page-container .time-filter-btn {
+  background: var(--darker-purple);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none; /* quitar borde por si acaso */
+  outline: none; /* quitar el borde de accesibilidad */
+  box-shadow: none;
+}
+
+/* Updated time filter button hover to use consistent purple gradient */
+.profile-page-container .time-filter-btn.active,
+.profile-page-container .time-filter-btn:hover {
+  background-color: #6c2d7c !important;
+  color: white !important;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.profile-page-container .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.profile-page-container .stats-card {
+  background-color: #6c2d7c;
+  color: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(87, 35, 100, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-page-container .stats-card:hover {
+  transform: translateY(-5px);
+}
+
+.profile-page-container .stats-card-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.profile-page-container .stats-card-label {
+  font-size: 1rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profile-page-container .export-section {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--dark-purple);
+}
+
+.profile-page-container .export-btn {
+  background: linear-gradient(135deg, var(--darkest-purple), var(--accent-purple));
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(33, 18, 36, 0.3);
+}
+
+/* Updated export button hover to use consistent purple gradient */
+.profile-page-container .export-btn:hover {
+  /* Export button consistent hover */
+  background-color: #6c2d7c !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(87, 35, 100, 0.4);
+  color: white !important;
+}
+
+.profile-page-container .nav-tabs {
+  border-bottom: 2px solid var(--dark-purple);
+  margin-bottom: 2rem;
+}
+
+.profile-page-container .nav-tabs .nav-link {
+  background: var(--darker-purple);
+  color: #a855f7;
+  border: 2px solid var(--dark-purple);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-right: 0.25rem;
+}
+
+/* Updated nav tab hover to use consistent purple gradient */
+.profile-page-container .nav-tabs .nav-link:hover {
+  /* Navigation tabs consistent hover */
+  background-color: #6c2d7c !important;
+  color: white !important;
+}
+
+.profile-page-container .nav-tabs .nav-link.active {
+  background: var(--primary-purple);
+  color: white;
+  border-color: var(--primary-purple);
+  border-bottom: 2px solid var(--primary-purple);
+}
+
+/* Added missing styles for series thumbnails */
+.profile-page-container .series-thumbnail {
+  width: 95%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--primary-purple);
+  transition: transform 0.3s ease;
+}
+
+.profile-page-container .series-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Action Buttons Styles */
+.profile-page-container .btn-ver,
+.profile-page-container .btn-editar,
+.profile-page-container .btn-eliminar {
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.5rem !important;
+  margin: 0 0.2rem !important;
+  width: 35px !important;
+  height: 35px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-size: 0.9rem !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ver button - Purple theme */
+.profile-page-container .btn-ver {
+  background: var(--primary-purple) !important;
+}
+
+.profile-page-container .btn-ver:hover {
+  background: var(--hover-purple-dark) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(87, 35, 100, 0.4) !important;
+}
+
+/* Editar button - Blue accent */
+.profile-page-container .btn-editar {
+  background: #4f46e5 !important;
+}
+
+.profile-page-container .btn-editar:hover {
+  background: #3730a3 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4) !important;
+}
+
+/* Eliminar button - Red accent */
+.profile-page-container .btn-eliminar {
+  background: #dc2626 !important;
+}
+
+.profile-page-container .btn-eliminar:hover {
+  background: #991b1b !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4) !important;
+}
+
+/* Icon styling within buttons */
+.profile-page-container .btn-ver i,
+.profile-page-container .btn-editar i,
+.profile-page-container .btn-eliminar i {
+  font-size: 0.85rem !important;
+  color: white !important;
+}
+
+/* Actions container styling */
+.profile-page-container .table td:nth-child(7) .d-flex {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
+}
+
+@media (max-width: 1400px) {
+  .profile-page-container .table-container {
+    /* Removed min-width constraints that caused horizontal scroll */
+    width: 100%;
+  }
+
+  .profile-page-container .table {
+    width: 100%;
+  }
+
+  /* Adjusted thumbnail size for medium screens */
+  .profile-page-container .series-thumbnail {
+    width: 90%;
+    height: 105px;
+  }
+
+  /* Responsive action button adjustments */
+  .profile-page-container .btn-ver,
+  .profile-page-container .btn-editar,
+  .profile-page-container .btn-eliminar {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .profile-page-container .table-container {
+    /* Removed min-width constraints */
+    width: 100%;
+  }
+
+  .profile-page-container .table {
+    width: 100%;
+  }
+
+  .profile-page-container .series-thumbnail {
+    width: 85%;
+    height: 90px;
+  }
+
+  .profile-page-container .btn-ver,
+  .profile-page-container .btn-editar,
+  .profile-page-container .btn-eliminar {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page-container .profile-header {
+    padding: 1.5rem;
+  }
+
+  .profile-page-container .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .profile-page-container .profile-image-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-page-container .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-page-container .time-filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Enhanced mobile responsive styles for table */
+  .profile-page-container .table-container {
+    /* Removed min-width that caused horizontal scroll on mobile */
+    width: 100%;
+  }
+
+  .profile-page-container .table {
+    width: 100%;
+  }
+
+  .profile-page-container .series-thumbnail {
+    width: 80%;
+    height: 75px;
+  }
+
+  /* Added responsive filter styles */
+  .profile-page-container .filters-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-page-container .search-input {
+    min-width: 100%;
+  }
+
+  .profile-page-container .btn-ver,
+  .profile-page-container .btn-editar,
+  .profile-page-container .btn-eliminar {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.7rem !important;
+    margin: 0 0.1rem !important;
+  }
+}

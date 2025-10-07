@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="es"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NekoNek - Header Autenticado</title>
+        <h:outputStylesheet library="css" name="usuarioheader.css" />
+        <h:outputStylesheet library="css" name="editars.css" />
+    </h:head>
+    <h:body id="nk-unique-body">
+        <!-- HEADER -->
+        <header id="nk-header-main">
+            <div id="nk-header-container">
+                <!-- Logo (izquierda) -->
+                <div id="nk-logo-section">
+                    <a class="logo-container" href="index.xhtml">
+                        <h:graphicImage library="images" name="logo.png" alt="Logo" styleClass="logo-image" />
+                    </a>
+                </div>
+
+                <!-- Navegación central -->
+                <nav id="nk-nav-center">
+                    <a href="#{request.contextPath}/Usuario/index.xhtml" class="nk-nav-link">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        <span>Inicio</span>
+                    </a>
+                    <a  class="nk-nav-link" href="#{request.contextPath}/Usuario/biblioteca.xhtml">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span>Biblioteca</span>
+                    </a>
+                    <div id="nk-search-container">
+                        <input type="text" id="nk-search-input" placeholder="Buscar..." />
+                    </div>
+                </nav>
+
+                <!-- Sección de usuario autenticado (derecha) -->
+                <div id="nk-user-section">
+                    <a onclick="window.location.href = 'crearSerie.xhtml'" id="nk-add-series-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>Agregar Serie</span>
+                    </a>
+                    <a onclick="window.location.href = 'reportes.xhtml'" id="nk-reports-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span>Reportes</span>
+                    </a>
+                    <div id="nk-profile-menu">
+                        <a href="#" id="nk-profile-btn">
+                            <svg class="nk-profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </a>
+                        <div id="nk-profile-dropdown">
+                            <a href="#{request.contextPath}/Usuario/autenticar.xhtml" class="nk-dropdown-item">
+                                <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Ir a Perfil
+                            </a>
+                            <a onclick="window.location.href = '#{request.contextPath}/login.xhtml'" class="nk-dropdown-item">
+                                <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16,17 21,12 16,7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                Salir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main>
+            <!-- ⚡ Esto asegura que se carguen los datos antes de mostrar -->
+            <f:event type="preRenderView" listener="#{serieBean.cargarParaEdicion}" />
+
+            <!-- Encabezado -->
+            <div class="header-logo">
+                <div class="logo-circle">
+                    <div class="logo-placeholder"></div>
+                </div>
+                <h2>Editar Serie</h2>
+            </div>
+
+            <!-- Formulario -->
+            <h:form enctype="multipart/form-data">
+                <h:panelGrid columns="1" cellpadding="10" style="width:100%; max-width:600px; margin:0 auto;">
+
+                    <!-- Título -->
+                    <h:panelGroup>
+                        <h:outputLabel for="titulo" value="Título:" />
+                        <p:inputText id="titulo" value="#{serieBean.serie.STitulo}" required="true"
+                                     requiredMessage="El título es obligatorio" style="width:100%" />
+                        <p:message for="titulo" />
+                    </h:panelGroup>
+
+                    <!-- Descripción -->
+                    <h:panelGroup>
+                        <h:outputLabel for="descripcion" value="Descripción:" />
+                        <p:inputTextarea id="descripcion" value="#{serieBean.serie.SDescripcion}" rows="5" cols="40"
+                                         required="true" requiredMessage="Debe ingresar una descripción"
+                                         style="width:100%" />
+                        <p:message for="descripcion" />
+                    </h:panelGroup>
+
+                    <!-- País -->
+                    <h:panelGroup>
+                        <h:outputLabel for="pais" value="País:" />
+                        <p:selectOneMenu id="pais" value="#{serieBean.serie.SPais}" required="true"
+                                         requiredMessage="Debe seleccionar un país" style="width:100%">
+                            <f:selectItems value="#{serieBean.paises}" var="p"
+                                           itemLabel="#{p.PNombre}" itemValue="#{p.PId}" />
+                        </p:selectOneMenu>
+                        <p:message for="pais" />
+                    </h:panelGroup>
+
+                    <!-- Estado -->
+                    <h:panelGroup>
+                        <h:outputLabel for="estado" value="Estado:" />
+                        <p:selectOneMenu id="estado" value="#{serieBean.serie.SEstado}" required="true"
+                                         requiredMessage="Debe seleccionar un estado" style="width:100%">
+                            <f:selectItems value="#{serieBean.estados}" var="e"
+                                           itemLabel="#{e.ENombre}" itemValue="#{e.EId}" />
+                        </p:selectOneMenu>
+                        <p:message for="estado" />
+                    </h:panelGroup>
+
+                    <!-- Imágenes -->
+                    <h:panelGroup layout="block" style="margin-top:20px;">
+                        <h:outputLabel value="Imagen Cuadrada:" for="imgC" />
+                        <div class="image-section">
+                            <p:graphicImage value="#{serieBean.serie.SImagenc}" width="120" height="120" />
+                            <h:inputFile id="imgC" value="#{serieBean.fileCuadrada}" />
+                        </div>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" style="margin-top:20px;">
+                        <h:outputLabel value="Imagen Vertical:" for="imgV" />
+                        <div class="image-section">
+                            <p:graphicImage value="#{serieBean.serie.SImagenv}" width="120" height="180" />
+                            <h:inputFile id="imgV" value="#{serieBean.fileVertical}" />
+                        </div>
+                    </h:panelGroup>
+
+                    <!-- Botones -->
+                    <!-- Botones -->
+                    <div style="text-align:center; margin-top:20px;">
+                        <span style="display:inline-block; margin:0 10px;">
+                            <p:commandButton value="Actualizar" 
+                                             action="#{serieBean.actualizar}" 
+                                             ajax="false"
+                                             style="min-width:700px;"/>
+                        </span>
+
+                        <span style="display:inline-block; margin:0 10px;">
+                            <p:commandButton value="Cancelar" 
+                                             action="#{serieBean.cancelar}" 
+                                             immediate="true" 
+                                             ajax="false"
+                                             style="min-width:700px;"/>
+                        </span>
+                    </div>
+
+
+                </h:panelGrid>
+            </h:form>
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer id="nk-footer-main">
+            <div id="nk-footer-container">
+                <div id="nk-footer-links">
+                    <a href="#" class="nk-footer-link">Preguntas Frecuentes</a>
+                    <a href="#" class="nk-footer-link">Política de Privacidad</a>
+                    <a href="#" class="nk-footer-link">Términos de Uso</a>
+                    <a href="#" class="nk-footer-link">Contáctanos</a>
+                </div>
+
+                <div id="nk-footer-info">
+                    <div id="nk-company-name">NekoNek Entertainment S.L.</div>
+                    <div id="nk-copyright">© 2025 nekonek.com Todos los Derechos Reservados</div>
+                    <div id="nk-contact-info">
+                        Horario de Atención: Lunes a Viernes 9:30 — 19:00 | Teléfono: 3224461311 | Email: jyu@nekonek.com
+                    </div>
+                    <div id="nk-license-info">Licencia de Publicación Digital: NKWEB-2024-001</div>
+                </div>
+            </div>
+        </footer>
+        <h:outputScript library="js" name="index.js" />
+    </h:body>
+</html>

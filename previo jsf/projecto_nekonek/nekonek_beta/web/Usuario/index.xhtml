@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      lang="es"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NekoNek - Header Autenticado</title>
+        <h:outputStylesheet library="css" name="usuarioheader.css" />
+        <h:outputStylesheet library="css" name="index.css" />
+    </h:head>
+    <h:body id="nk-unique-body">
+        <!-- HEADER -->
+        <header id="nk-header-main">
+            <div id="nk-header-container">
+                <!-- Logo (izquierda) -->
+                <div id="nk-logo-section">
+                    <a class="logo-container" href="index.xhtml">
+                        <h:graphicImage library="images" name="logo.png" alt="Logo" styleClass="logo-image" />
+                    </a>
+                </div>
+
+                <!-- Navegación central -->
+                <nav id="nk-nav-center">
+                    <a href="#{request.contextPath}/Usuario/index.xhtml" class="nk-nav-link">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        <span>Inicio</span>
+                    </a>
+                    <a  class="nk-nav-link" href="#{request.contextPath}/Usuario/biblioteca.xhtml">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span>Biblioteca</span>
+                    </a>
+                    <div id="nk-search-container">
+                        <input type="text" id="nk-search-input" placeholder="Buscar..." />
+                    </div>
+                </nav>
+
+                <!-- Sección de usuario autenticado (derecha) -->
+                <div id="nk-user-section">
+                    <a onclick="window.location.href = 'crearSerie.xhtml'" id="nk-add-series-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>Agregar Serie</span>
+                    </a>
+                    <a onclick="window.location.href = 'reportes.xhtml'" id="nk-reports-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span>Reportes</span>
+                    </a>
+                    <div id="nk-profile-menu">
+                        <a href="#" id="nk-profile-btn">
+                            <svg class="nk-profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </a>
+                        <div id="nk-profile-dropdown">
+                            <a href="#{request.contextPath}/Usuario/autenticar.xhtml" class="nk-dropdown-item">
+                                <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Ir a Perfil
+                            </a>
+                            <a onclick="window.location.href = '#{request.contextPath}/login.xhtml'" class="nk-dropdown-item">
+                                <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16,17 21,12 16,7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                Salir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main id="nk-main-content">
+            <main class="main-content">
+
+                <!-- Carousel Section -->
+                <div class="carousel">
+                    <div class="slide active">
+                        <div class="slide-bg" style="background-image: url('#{resource['images/01.png']}')"></div>
+                        <div class="slide-gradient"></div>
+                        <div class="slide-content">
+                            <h1 class="slide-title">Solo Leveling</h1>
+                            <p class="slide-original-title">나 혼자만 레벨업</p>
+                            <div class="slide-genres">
+                                <span>Acción</span>
+                                <span>Fantasía</span>
+                                <span>Aventura</span>
+                                <span>Ciencia Ficción</span>
+                            </div>
+                            <div class="slide-info">
+                                <span>1 temporada</span>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span>4.9</span>
+                                </div>
+                                <span>Corea</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">HD</span>
+                                <span class="tag">Serie</span>
+                                <span class="tag emission">EMISIÓN</span>
+                            </div>
+                            <p class="slide-description">
+                                La historia se centra en Sung Jin-woo, un cazador que despierta en el hospital tras ser brutalmente asesinado por monstruos en una mazmorra.
+                            </p>
+                            <a href="#" class="btn-watch">VER AHORA</a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-bg" style="background-image: url('#{resource['images/02.png']}')"></div>
+                        <div class="slide-gradient"></div>
+                        <div class="slide-content">
+                            <h1 class="slide-title">Attack on Titan</h1>
+                            <p class="slide-original-title">進撃の巨人</p>
+                            <div class="slide-genres">
+                                <span>Acción</span>
+                                <span>Drama</span>
+                                <span>Fantasía</span>
+                            </div>
+                            <div class="slide-info">
+                                <span>4 temporadas</span>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span>4.8</span>
+                                </div>
+                                <span>Japón</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">HD</span>
+                                <span class="tag">Anime</span>
+                                <span class="tag">Finalizado</span>
+                            </div>
+                            <p class="slide-description">
+                                La humanidad vive encerrada tras enormes muros para protegerse de los titanes, criaturas gigantes que devoran humanos.
+                            </p>
+                            <a href="#" class="btn-watch">VER AHORA</a>
+                        </div>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-bg" style="background-image: url('#{resource['images/03.png']}')"></div>
+                        <div class="slide-gradient"></div>
+                        <div class="slide-content">
+                            <h1 class="slide-title">Demon Slayer</h1>
+                            <p class="slide-original-title">鬼滅の刃</p>
+                            <div class="slide-genres">
+                                <span>Acción</span>
+                                <span>Sobrenatural</span>
+                                <span>Aventura</span>
+                            </div>
+                            <div class="slide-info">
+                                <span>3 temporadas</span>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span>4.7</span>
+                                </div>
+                                <span>Japón</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">HD</span>
+                                <span class="tag">Anime</span>
+                                <span class="tag emission">EMISIÓN</span>
+                            </div>
+                            <p class="slide-description">
+                                Tanjiro se convierte en cazador de demonios para salvar a su hermana convertida en demonio y vengar a su familia.
+                            </p>
+                            <a href="#" class="btn-watch">VER AHORA</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-nav">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+
+                    <div class="carousel-indicators">
+                        <span class="indicator active" data-index="0"></span>
+                        <span class="indicator" data-index="1"></span>
+                        <span class="indicator" data-index="2"></span>
+                    </div>
+                </div>
+
+                <!-- Rankings Section -->
+                <div class="rankings-section">
+                    <div class="rankings-container">
+                        <!-- Anime Ranking -->
+                        <div class="ranking-column">
+                            <h2 class="ranking-title">Animes más vistos</h2>
+                            <ol class="ranking-list">
+                                <li class="ranking-item">
+                                    <div class="ranking-basic">
+                                        <span class="title">One Piece</span>
+                                        <span class="update">Actualizado a Episodio 1000+</span>
+                                    </div>
+                                    <div class="ranking-expanded">
+                                        <img src="" alt="One Piece" class="cover" />
+                                        <div class="expanded-content">
+                                            <h3>One Piece</h3>
+                                            <p>Las aventuras de Luffy y su tripulación en busca del tesoro más grande del mundo.</p>
+                                            <a href="#" class="watch-now">Ver ahora</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Manga Ranking -->
+                        <div class="ranking-column">
+                            <h2 class="ranking-title">Mangas más leídos</h2>
+                            <ol class="ranking-list">
+                                <li class="ranking-item">
+                                    <div class="ranking-basic">
+                                        <span class="title">Berserk</span>
+                                        <span class="update">Actualizado a Capítulo 374</span>
+                                    </div>
+                                    <div class="ranking-expanded">
+                                        <img src="" alt="Berserk" class="cover" />
+                                        <div class="expanded-content">
+                                            <h3>Berserk</h3>
+                                            <p>La épica historia de Guts, un guerrero en busca de venganza en un mundo oscuro y brutal.</p>
+                                            <a href="#" class="watch-now">Leer ahora</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <!-- Light Novel Ranking -->
+                        <div class="ranking-column">
+                            <h2 class="ranking-title">Novelas ligeras populares</h2>
+                            <ol class="ranking-list">
+                                <li class="ranking-item">
+                                    <div class="ranking-basic">
+                                        <span class="title">Sword Art Online</span>
+                                        <span class="update">Volumen 27 disponible</span>
+                                    </div>
+                                    <div class="ranking-expanded">
+                                        <img src="" alt="SAO" class="cover" />
+                                        <div class="expanded-content">
+                                            <h3>Sword Art Online</h3>
+                                            <p>Jugadores atrapados en un MMORPG virtual donde la muerte en el juego significa muerte real.</p>
+                                            <a href="#" class="watch-now">Leer ahora</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Genre Section -->
+                <div class="genre-container">
+                    <div class="genre-tabs-navigation">
+                        <button class="genre-tab-button active" data-tab="horror">Horror</button>
+                        <button class="genre-tab-button" data-tab="romance">Romance</button>
+                        <button class="genre-tab-button" data-tab="shonen">Shonen</button>
+                        <button class="genre-tab-button" data-tab="seinen">Seinen</button>
+                        <button class="genre-tab-button" data-tab="gore">Gore</button>
+                        <button class="genre-tab-button ver-mas" >Ver más</button>
+
+                    </div>
+
+                    <!-- Horror Grid -->
+                    <div class="genre-grid active" id="horror">
+                        <a href="#" class="genre-card">
+                            <span class="genre-label">TOP 1</span>
+                            <img src="" alt="Tokyo Ghoul" class="genre-image" />
+                            <h3 class="genre-name">Tokyo Ghoul</h3>
+                            <p class="genre-description">Un estudiante universitario se convierte en un ser mitad humano, mitad ghoul.</p>
+                            <div class="genre-stats">Lecturas: 1.2M</div>
+                        </a>
+                    </div>
+
+                    <!-- Romance Grid -->
+                    <div class="genre-grid" id="romance">
+                        <a href="#" class="genre-card">
+                            <span class="genre-label">TOP 1</span>
+                            <img src="" alt="Kimi ni Todoke" class="genre-image" />
+                            <h3 class="genre-name">Kimi ni Todoke</h3>
+                            <p class="genre-description">La historia de una chica tímida encontrando el amor verdadero.</p>
+                            <div class="genre-stats">Lecturas: 1.5M</div>
+                        </a>
+                    </div>
+
+                    <!-- Shonen Grid -->
+                    <div class="genre-grid" id="shonen">
+                        <a href="#" class="genre-card">
+                            <span class="genre-label">TOP 1</span>
+                            <img src="" alt="Naruto" class="genre-image" />
+                            <h3 class="genre-name">Naruto</h3>
+                            <p class="genre-description">Un joven ninja busca convertirse en el líder de su aldea.</p>
+                            <div class="genre-stats">Lecturas: 2.2M</div>
+                        </a>
+                    </div>
+
+                    <!-- Seinen Grid -->
+                    <div class="genre-grid" id="seinen">
+                        <a href="#" class="genre-card">
+                            <span class="genre-label">TOP 1</span>
+                            <img src="" alt="Monster" class="genre-image" />
+                            <h3 class="genre-name">Monster</h3>
+                            <p class="genre-description">Un neurocirujano persigue a un asesino en serie que una vez salvó.</p>
+                            <div class="genre-stats">Lecturas: 1.4M</div>
+                        </a>
+                    </div>
+
+                    <!-- Gore Grid -->
+                    <div class="genre-grid" id="gore">
+                        <a href="#" class="genre-card">
+                            <span class="genre-label">TOP 1</span>
+                            <img src="" alt="Gantz" class="genre-image" />
+                            <h3 class="genre-name">Gantz</h3>
+                            <p class="genre-description">Personas muertas son forzadas a participar en un juego mortal.</p>
+                            <div class="genre-stats">Lecturas: 1.1M</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Latest Publications Section -->
+                <div class="latest-publications">
+                    <h1 class="page-title">Últimas Publicaciones</h1>
+                    <main class="content-grid">
+                        <div class="poster-card">
+                            <a href="#">
+                                <div class="poster-image-container">
+                                    <img src="" alt="Chainsaw Man" class="poster-image" />
+                                    <span class="genre-tag">Manga</span>
+                                </div>
+                                <div class="poster-title">Chainsaw Man</div>
+                            </a>
+                        </div>
+                    </main>
+                </div>
+
+                <!-- Most Popular Section -->
+                <div class="obras-destacadas">
+                    <h2>Más Populares</h2>
+                    <div class="obras-grid">
+                        <div class="poster-card">
+                            <a href="#">
+                                <div class="poster-image-container">
+                                    <img src="" alt="Jujutsu Kaisen" class="poster-image" />
+                                    <span class="genre-tag">Anime</span>
+                                </div>
+                                <div class="poster-title">Jujutsu Kaisen</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regional Series Section -->
+                <div class="series-container">
+                    <div class="tabs-navigation">
+                        <button class="tab-button active" data-tab="japanese">Series Japonesas</button>
+                        <button class="tab-button" data-tab="korean">Series Coreanas</button>
+                        <button class="tab-button" data-tab="chinese">Series Chinas</button>
+                    </div>
+
+                    <!-- Japanese Series Grid -->
+                    <div class="series-grid active" id="japanese">
+                        <div class="series-card">
+                            <a href="#">
+                                <span class="series-label">TOP 1</span>
+                                <img src="" alt="Serie Japonesa" class="series-image" />
+                                <h3 class="series-name">Death Note</h3>
+                                <p class="series-description">Un estudiante encuentra un cuaderno sobrenatural que puede matar a cualquier persona.</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Korean Series Grid -->
+                    <div class="series-grid" id="korean">
+                        <div class="series-card">
+                            <a href="#">
+                                <span class="series-label">TOP 1</span>
+                                <img src="" alt="Serie Coreana" class="series-image" />
+                                <h3 class="series-name">Tower of God</h3>
+                                <p class="series-description">Un joven escala una misteriosa torre para encontrar a su amiga.</p>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Chinese Series Grid -->
+                    <div class="series-grid" id="chinese">
+                        <div class="series-card">
+                            <a href="#">
+                                <span class="series-label">TOP 1</span>
+                                <img src="" alt="Serie China" class="series-image" />
+                                <h3 class="series-name">Tales of Demons and Gods</h3>
+                                <p class="series-description">Un joven regresa al pasado para cambiar el destino de su ciudad.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </main>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="nk-footer-main">
+            <div id="nk-footer-container">
+                <div id="nk-footer-links">
+                    <a href="#" class="nk-footer-link">Preguntas Frecuentes</a>
+                    <a href="#" class="nk-footer-link">Política de Privacidad</a>
+                    <a href="#" class="nk-footer-link">Términos de Uso</a>
+                    <a href="#" class="nk-footer-link">Contáctanos</a>
+                </div>
+
+                <div id="nk-footer-info">
+                    <div id="nk-company-name">NekoNek Entertainment S.L.</div>
+                    <div id="nk-copyright">© 2025 nekonek.com Todos los Derechos Reservados</div>
+                    <div id="nk-contact-info">
+                        Horario de Atención: Lunes a Viernes 9:30 — 19:00 | Teléfono: 3224461311 | Email: jyu@nekonek.com
+                    </div>
+                    <div id="nk-license-info">Licencia de Publicación Digital: NKWEB-2024-001</div>
+                </div>
+            </div>
+        </footer>
+        <h:outputScript library="js" name="index.js" />
+    </h:body>
+</html>

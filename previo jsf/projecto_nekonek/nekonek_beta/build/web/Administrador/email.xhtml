@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      lang="es">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NekoNek - Header Autenticado</title>
+        <h:outputStylesheet library="css" name="administradorheader.css" />
+        <h:outputStylesheet library="css" name="email.css" />
+    </h:head>
+    <h:body id="nk-unique-body">
+        <!-- HEADER -->
+        <header id="nk-header-main">
+            <div id="nk-header-container">
+                <!-- Logo (izquierda) -->
+                <div id="nk-logo-section">
+                    <a class="logo-container" href="index.xhtml">
+                        <h:graphicImage library="images" name="logo.png" alt="Logo" styleClass="logo-image" />
+                    </a>
+                </div>
+
+                <!-- Navegación central -->
+                <nav id="nk-nav-center">
+                    <a href="#" class="nk-nav-link">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9,22 9,12 15,12 15,22"/>
+                        </svg>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="#" class="nk-nav-link">
+                        <svg class="nk-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        <span>Biblioteca</span>
+                    </a>
+                    <div id="nk-search-container">
+                        <input type="text" id="nk-search-input" placeholder="Buscar..." />
+                    </div>
+                </nav>
+
+                <!-- Sección de usuario autenticado (derecha) -->
+                <div id="nk-user-section">
+                    <a href="#" id="nk-add-series-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>Agregar Serie</span>
+                    </a>
+                    <a href="#" id="nk-reports-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span>Reportes</span>
+                    </a>
+                    <!-- Nuevo botón Correos -->
+                    <a href="#" id="nk-mails-btn" class="nk-user-btn">
+                        <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16v16H4z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span>Correos</span>
+                    </a>
+                    <div id="nk-profile-menu">
+                        <a href="#" id="nk-profile-btn">
+                            <svg class="nk-profile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </a>
+                        <div id="nk-profile-dropdown">
+                            <a href="#{request.contextPath}/Administrador/autenticar.xhtml" class="nk-dropdown-item">
+                                <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Ir a Perfil
+                            </a>
+                            <a onclick="window.location.href = '#{request.contextPath}/login.xhtml'" class="nk-dropdown-item">
+                                <svg class="nk-user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16,17 21,12 16,7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                Salir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main id="nk-main-content">
+            <h:form id="correoForm">
+
+                <!-- ✅ Mensajes globales -->
+                <p:growl id="msgs" showDetail="true" life="4000" />
+
+                <!-- ✅ Título -->
+                <h2>📧 Enviar correos a usuarios</h2>
+
+                <div class="form-container">
+
+                    <!-- ✅ Campos de Asunto y Mensaje -->
+                    <h:panelGrid columns="2" cellpadding="8" style="width:100%"
+                                 columnClasses="col-label,col-input">
+
+                        <h:outputLabel value="Asunto:" for="asunto"/>
+                        <p:inputText id="asunto" value="#{correoBean.asunto}"
+                                     required="true" requiredMessage="El asunto es obligatorio"/>
+
+                        <h:outputLabel value="Mensaje:" for="mensaje"/>
+                        <p:inputTextarea id="mensaje" value="#{correoBean.contmensaje}"
+                                         autoResize="true" rows="5" cols="50"
+                                         required="true" requiredMessage="El mensaje es obligatorio"/>
+                    </h:panelGrid>
+
+                    <!-- ✅ Tabla de usuarios con selección múltiple -->
+                    <p:dataTable id="tablaUsuarios" value="#{correoBean.listaUsr}" var="usr"
+                                 selection="#{correoBean.seleccionados}" rowKey="#{usr.UEmail}"
+                                 paginator="true" rows="5" style="width:100%; margin-top:20px;"
+                                 widgetVar="tablaWidget">
+
+                        <p:column selectionMode="multiple" style="width:40px;text-align:center"/>
+
+                        <p:column headerText="Nombre">
+                            <h:outputText value="#{usr.UNombre}" />
+                        </p:column>
+
+                        <p:column headerText="Correo">
+                            <h:outputText value="#{usr.UEmail}" />
+                        </p:column>
+                    </p:dataTable>
+
+                    <!-- ✅ Botones -->
+                    <div class="button-container">
+                        <p:commandButton value="Seleccionar Todos"
+                                         onclick="PF('tablaWidget').selectAllRows(); return false;"
+                                         type="button" icon="pi pi-check"/>
+
+                        <p:commandButton value="Deseleccionar Todos"
+                                         onclick="PF('tablaWidget').unselectAllRows(); return false;"
+                                         type="button" icon="pi pi-times"/>
+
+                        <p:commandButton value="Enviar Correo"
+                                         actionListener="#{correoBean.enviarCorreo}"
+                                         update="correoForm"
+                                         icon="pi pi-send"
+                                         styleClass="primary-button"/>
+                    </div>
+
+                    <!-- Vincular datatable a un widget para JS -->
+                    <p:remoteCommand name="refreshTable" update="tablaUsuarios" />
+                </div>
+
+            </h:form>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="nk-footer-main">
+            <div id="nk-footer-container">
+                <div id="nk-footer-links">
+                    <a href="#" class="nk-footer-link">Preguntas Frecuentes</a>
+                    <a href="#" class="nk-footer-link">Política de Privacidad</a>
+                    <a href="#" class="nk-footer-link">Términos de Uso</a>
+                    <a href="#" class="nk-footer-link">Contáctanos</a>
+                </div>
+
+                <div id="nk-footer-info">
+                    <div id="nk-company-name">NekoNek Entertainment S.L.</div>
+                    <div id="nk-copyright">© 2025 nekonek.com Todos los Derechos Reservados</div>
+                    <div id="nk-contact-info">
+                        Horario de Atención: Lunes a Viernes 9:30 — 19:00 | Teléfono: 3224461311 | Email: jyu@nekonek.com
+                    </div>
+                    <div id="nk-license-info">Licencia de Publicación Digital: NKWEB-2024-001</div>
+                </div>
+            </div>
+        </footer>
+    </h:body>
+</html>

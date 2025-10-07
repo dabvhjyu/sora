@@ -1,0 +1,584 @@
+/* Estilos para Perfil de Usuario - Solo afecta el main */
+/* Prefijo 'perfil-usuario-' para evitar conflictos */
+
+/* IMPORTANTE: Todos los estilos están limitados al contenido principal */
+#nk-main-content .perfil-usuario-series-main-content {
+  min-height: 100vh !important;
+  background: linear-gradient(135deg, #572364 0%, #491f53 25%, #3b1b43 50%, #2e1733 75%, #211224 100%) !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Agregando reglas para ocultar elementos JSF problemáticos */
+/* Ocultar elementos JSF que causan cuadritos blancos */
+#nk-main-content input[type="hidden"],
+#nk-main-content .ui-helper-hidden,
+#nk-main-content .ui-helper-hidden-accessible,
+#nk-main-content .javax_faces_ViewState,
+#nk-main-content script + input[type="hidden"],
+#nk-main-content form > input[type="hidden"]:first-child,
+#nk-main-content .ui-state-default:empty,
+#nk-main-content .ui-widget:empty,
+#nk-main-content span:empty,
+#nk-main-content div:empty:not(.perfil-usuario-star):not(.perfil-usuario-profile-divider) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+/* Asegurar que elementos JSF no tengan fondo blanco */
+#nk-main-content .ui-widget,
+#nk-main-content .ui-widget-content,
+#nk-main-content .ui-corner-all,
+#nk-main-content .ui-state-default {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ocultar elementos específicos de PrimeFaces que pueden aparecer */
+#nk-main-content .ui-datatable-scrollable-header,
+#nk-main-content .ui-datatable-scrollable-footer,
+#nk-main-content .ui-datatable-empty-message,
+#nk-main-content .ui-messages:empty,
+#nk-main-content .ui-growl:empty {
+  display: none !important;
+}
+
+/* Hero Section */
+#nk-main-content .perfil-usuario-profile-hero-section {
+  position: relative !important;
+  min-height: 60vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem 1rem !important;
+}
+
+#nk-main-content .perfil-usuario-hero-background {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, #1a0b2e 0%, #16213e 50%, #0f3460 100%) !important;
+  overflow: hidden !important;
+}
+
+#nk-main-content .perfil-usuario-mountain-silhouette {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 40% !important;
+  background: linear-gradient(to top, #000000 0%, transparent 100%) !important;
+  clip-path: polygon(0 100%, 15% 60%, 35% 80%, 50% 40%, 70% 70%, 85% 50%, 100% 90%, 100% 100%) !important;
+}
+
+#nk-main-content .perfil-usuario-hero-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%) !important;
+}
+
+#nk-main-content .perfil-usuario-stars {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+#nk-main-content .perfil-usuario-star {
+  position: absolute !important;
+  width: 2px !important;
+  height: 2px !important;
+  background: white !important;
+  border-radius: 50% !important;
+  animation: perfil-usuario-twinkle 3s infinite !important;
+}
+
+#nk-main-content .perfil-usuario-star:nth-child(1) {
+  top: 20% !important;
+  left: 10% !important;
+  animation-delay: 0s !important;
+}
+#nk-main-content .perfil-usuario-star:nth-child(2) {
+  top: 30% !important;
+  left: 80% !important;
+  animation-delay: 1s !important;
+}
+#nk-main-content .perfil-usuario-star:nth-child(3) {
+  top: 50% !important;
+  left: 20% !important;
+  animation-delay: 2s !important;
+}
+#nk-main-content .perfil-usuario-star:nth-child(4) {
+  top: 15% !important;
+  left: 60% !important;
+  animation-delay: 1.5s !important;
+}
+#nk-main-content .perfil-usuario-star:nth-child(5) {
+  top: 40% !important;
+  left: 90% !important;
+  animation-delay: 0.5s !important;
+}
+
+@keyframes perfil-usuario-twinkle {
+  0%,
+  100% {
+    opacity: 0.3 !important;
+    transform: scale(1) !important;
+  }
+  50% {
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+  }
+}
+
+/* Profile Content */
+#nk-main-content .perfil-usuario-profile-content {
+  position: relative !important;
+  z-index: 10 !important;
+  text-align: center !important;
+  max-width: 600px !important;
+  width: 100% !important;
+}
+
+#nk-main-content .perfil-usuario-edit-button {
+  position: absolute !important;
+  top: -20px !important;
+  right: 0 !important;
+  background: rgba(87, 35, 100, 0.9) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#nk-main-content .perfil-usuario-edit-button:hover {
+  background: rgba(87, 35, 100, 1) !important;
+  transform: translateY(-2px) !important;
+}
+
+#nk-main-content .perfil-usuario-profile-avatar {
+  margin-bottom: 1.5rem !important;
+}
+
+#nk-main-content .perfil-usuario-avatar-ring {
+  width: 120px !important;
+  height: 120px !important;
+  margin: 0 auto !important;
+  border-radius: 50% !important;
+  background: linear-gradient(45deg, #572364, #491f53) !important;
+  padding: 4px !important;
+  position: relative !important;
+}
+
+#nk-main-content .perfil-usuario-avatar-image {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #3b1b43, #2e1733) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+}
+
+#nk-main-content .perfil-usuario-avatar-image svg {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+#nk-main-content .perfil-usuario-profile-info {
+  margin-bottom: 2rem !important;
+}
+
+#nk-main-content .perfil-usuario-profile-name {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  margin: 0 0 0.5rem 0 !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+#nk-main-content .perfil-usuario-profile-quote {
+  font-size: 1.1rem !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin: 0 !important;
+  font-style: italic !important;
+}
+
+#nk-main-content .perfil-usuario-profile-divider {
+  width: 60px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, #572364, transparent) !important;
+  margin: 2rem auto !important;
+}
+
+/* Navigation */
+#nk-main-content .perfil-usuario-profile-navigation {
+  margin-top: 2rem !important;
+}
+
+#nk-main-content .perfil-usuario-nav-options {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0 !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 25px !important;
+  padding: 4px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#nk-main-content .perfil-usuario-nav-option {
+  background: transparent !important;
+  border: none !important;
+  padding: 0.8rem 2rem !important;
+  border-radius: 20px !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+}
+
+#nk-main-content .perfil-usuario-nav-option:hover {
+  color: white !important;
+  background: rgba(87, 35, 100, 0.3) !important;
+}
+
+#nk-main-content .perfil-usuario-nav-option.perfil-usuario-active {
+  background: linear-gradient(135deg, #572364, #491f53) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(87, 35, 100, 0.4) !important;
+}
+
+#nk-main-content .perfil-usuario-option-text {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Content Sections */
+#nk-main-content .perfil-usuario-content-section {
+  padding: 0 2rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  margin-bottom: 3rem !important;
+}
+
+#nk-main-content .perfil-usuario-hidden {
+  display: none !important;
+}
+
+/* Series Grid - JSF DataTable Transformation */
+#nk-main-content .perfil-usuario-series-grid {
+  margin-bottom: 0 !important;
+}
+
+#nk-main-content .perfil-usuario-hidden-table {
+  width: 100% !important;
+}
+
+#nk-main-content .perfil-usuario-hidden-table .ui-datatable-header,
+#nk-main-content .perfil-usuario-hidden-table .ui-datatable-footer,
+#nk-main-content .perfil-usuario-hidden-table .ui-paginator {
+  display: none !important;
+}
+
+#nk-main-content .perfil-usuario-hidden-table table,
+#nk-main-content .perfil-usuario-hidden-table thead,
+#nk-main-content .perfil-usuario-hidden-table tbody,
+#nk-main-content .perfil-usuario-hidden-table tr,
+#nk-main-content .perfil-usuario-hidden-table td {
+  display: block !important;
+  width: 100% !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+#nk-main-content .perfil-usuario-hidden-table tbody {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 2rem !important;
+  padding: 0 !important;
+  margin-top: 2rem !important;
+}
+
+#nk-main-content .perfil-usuario-hidden-table tr {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#nk-main-content .perfil-usuario-hidden-table td {
+  padding: 0 !important;
+}
+
+/* Series Cards */
+#nk-main-content .perfil-usuario-series-card {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(87, 35, 100, 0.3) !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 1rem 0 !important;
+}
+
+#nk-main-content .perfil-usuario-card-image {
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+#nk-main-content .perfil-usuario-card-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.3s ease !important;
+}
+
+#nk-main-content .perfil-usuario-series-card:hover .perfil-usuario-card-img {
+  transform: scale(1.05) !important;
+}
+
+#nk-main-content .perfil-usuario-card-content {
+  padding: 1.5rem !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#nk-main-content .perfil-usuario-card-title {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  margin: 0 0 0.8rem 0 !important;
+  line-height: 1.3 !important;
+}
+
+#nk-main-content .perfil-usuario-card-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  margin: 0 0 1rem 0 !important;
+  flex: 1 !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+/* Card Actions - CRUD Buttons */
+#nk-main-content .perfil-usuario-card-actions {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.5rem !important;
+  margin-top: auto !important;
+  padding: 0 0.5rem 0.5rem 0.5rem !important;
+}
+
+#nk-main-content .perfil-usuario-action-btn {
+  padding: 0.6rem 0.4rem !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+  min-height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Button Variants */
+#nk-main-content .perfil-usuario-edit-btn {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(139, 92, 246, 0.3) !important;
+}
+#nk-main-content .perfil-usuario-edit-btn:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(139, 92, 246, 0.4) !important;
+}
+
+#nk-main-content .perfil-usuario-add-btn {
+  background: linear-gradient(135deg, #ec4899, #db2777) !important;
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(236, 72, 153, 0.3) !important;
+}
+#nk-main-content .perfil-usuario-add-btn:hover {
+  background: linear-gradient(135deg, #db2777, #be185d) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(236, 72, 153, 0.4) !important;
+}
+
+#nk-main-content .perfil-usuario-view-btn {
+  background: linear-gradient(135deg, #a855f7, #9333ea) !important;
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(168, 85, 247, 0.3) !important;
+}
+#nk-main-content .perfil-usuario-view-btn:hover {
+  background: linear-gradient(135deg, #9333ea, #7e22ce) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(168, 85, 247, 0.4) !important;
+}
+
+#nk-main-content .perfil-usuario-delete-btn {
+  background: linear-gradient(135deg, #be185d, #9d174d) !important;
+  color: white !important;
+  box-shadow: 0 2px 6px rgba(190, 24, 93, 0.3) !important;
+}
+#nk-main-content .perfil-usuario-delete-btn:hover {
+  background: linear-gradient(135deg, #9d174d, #831843) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 3px 8px rgba(190, 24, 93, 0.4) !important;
+}
+
+/* Reports Section */
+#nk-main-content .perfil-usuario-reports-container {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 2rem 0 !important;
+}
+
+#nk-main-content .perfil-usuario-report-card {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 15px !important;
+  padding: 3rem !important;
+  text-align: center !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(87, 35, 100, 0.3) !important;
+  max-width: 400px !important;
+  width: 100% !important;
+}
+
+#nk-main-content .perfil-usuario-report-title {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+#nk-main-content .perfil-usuario-report-description {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin: 0 0 2rem 0 !important;
+}
+
+#nk-main-content .perfil-usuario-generate-report-btn {
+  background: linear-gradient(135deg, #572364, #491f53) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  border-radius: 25px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+}
+#nk-main-content .perfil-usuario-generate-report-btn:hover {
+  background: linear-gradient(135deg, #491f53, #3b1b43) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 20px rgba(87, 35, 100, 0.4) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #nk-main-content .perfil-usuario-profile-name {
+    font-size: 2rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-nav-option {
+    padding: 0.6rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-content-section {
+    padding: 0 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-hidden-table tbody {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-edit-button {
+    position: static !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #nk-main-content .perfil-usuario-profile-hero-section {
+    padding: 1rem 0.5rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-avatar-ring {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  #nk-main-content .perfil-usuario-avatar-image svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  #nk-main-content .perfil-usuario-profile-name {
+    font-size: 1.8rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-profile-quote {
+    font-size: 1rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-nav-options {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-nav-option {
+    width: 100% !important;
+  }
+
+  #nk-main-content .perfil-usuario-card-actions {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.4rem !important;
+    padding: 0 0.3rem 0.3rem 0.3rem !important;
+  }
+
+  #nk-main-content .perfil-usuario-action-btn {
+    font-size: 0.7rem !important;
+    padding: 0.5rem 0.3rem !important;
+    min-height: 32px !important;
+  }
+}

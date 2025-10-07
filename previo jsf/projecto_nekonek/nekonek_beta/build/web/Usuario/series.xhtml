@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="biblioteca.css" />
+    <title>Biblioteca de Series</title>
+</h:head>
+<h:body>
+  <f:event type="preRenderView" listener="#{serieBean.cargarSeries()}" />
+  <h1>Biblioteca de Series</h1>
+
+  <h:form id="formSeries">
+    <p:growl id="msj" showDetail="true" showSummary="true" />
+
+    <div class="header-controls">
+      <!-- BARRA DE BÚSQUEDA -->
+      <p:inputText id="globalFilter" placeholder="Buscar por título, descripción..." styleClass="ui-inputtext" />
+
+      <!-- GÉNERO -->
+      <p:selectOneMenu id="filtroGenero" styleClass="ui-selectonemenu">
+        <f:selectItem itemLabel="Todos los géneros" itemValue="" />
+        <f:selectItem itemLabel="Acción" itemValue="accion" />
+        <f:selectItem itemLabel="Drama" itemValue="drama" />
+        <f:selectItem itemLabel="Comedia" itemValue="comedia" />
+        <f:selectItem itemLabel="Romance" itemValue="romance" />
+        <f:selectItem itemLabel="Thriller" itemValue="thriller" />
+      </p:selectOneMenu>
+
+      <!-- PAÍS -->
+      <p:selectOneMenu id="filtroPais" styleClass="ui-selectonemenu">
+        <f:selectItem itemLabel="Todos los países" itemValue="" />
+        <f:selectItem itemLabel="Japón" itemValue="japan" />
+        <f:selectItem itemLabel="Estados Unidos" itemValue="usa" />
+        <f:selectItem itemLabel="Reino Unido" itemValue="uk" />
+        <f:selectItem itemLabel="Corea del Sur" itemValue="korea" />
+      </p:selectOneMenu>
+
+      <!-- ESTADO -->
+      <p:selectOneMenu id="filtroEstado" styleClass="ui-selectonemenu">
+        <f:selectItem itemLabel="Todos los estados" itemValue="" />
+        <f:selectItem itemLabel="En emisión" itemValue="emision" />
+        <f:selectItem itemLabel="Finalizada" itemValue="finalizada" />
+        <f:selectItem itemLabel="Cancelada" itemValue="cancelada" />
+      </p:selectOneMenu>
+    </div>
+
+    <!-- GRID DE TARJETAS -->
+    <p:dataTable value="#{serieBean.series}" var="s" id="tblSeries" widgetVar="wtblSeries"
+                 emptyMessage="No se encontraron registros"
+                 rows="30" paginator="true"
+                 currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                 rowsPerPageTemplate="30,60,90">
+      <p:column>
+        <div class="serie-card">
+          <div class="card-image-container">
+            <p:graphicImage value="#{s.SImagenv}" styleClass="card-main-image" alt="#{s.STitulo}" />
+            <div class="type-badge">#{s.nombreTipo}</div>
+            <p:graphicImage value="#{s.SImagenc}" styleClass="secondary-image" alt="#{s.STitulo} - Cuadrada" />
+          </div>
+
+          <div class="card-content">
+            <h3 class="card-title">#{s.STitulo}</h3>
+            <div class="card-info">
+              <span class="card-country">#{s.nombrePais}</span>
+              <span class="card-status">#{s.nombreEstado}</span>
+            </div>
+          </div>
+        </div>
+      </p:column>
+    </p:dataTable>
+  </h:form>
+</h:body>
+</html>
